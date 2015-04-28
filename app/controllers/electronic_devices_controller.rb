@@ -1,0 +1,2 @@
+class ElectronicDevicesController < ApplicationController
+end

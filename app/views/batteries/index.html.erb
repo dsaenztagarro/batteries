@@ -1,0 +1,23 @@
+<h1>Listing Batteries</h1>
+
+<table>
+  <tr>
+    <th>Battery Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @batteries.each do |battery| %>
+  <tr>
+    <td><%= battery.battery_type_name %></td>
+    <td><%= link_to "Show", battery %></td>
+    <td><%= link_to "Edit", edit_battery_path(battery) %></td>
+    <td><%= link_to "Remove", battery, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to "New battery", new_battery_path %>
