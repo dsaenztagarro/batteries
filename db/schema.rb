@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150427221939) do
   add_index "batteries", ["electronic_device_id"], name: "index_batteries_on_electronic_device_id", using: :btree
 
   create_table "battery_types", force: :cascade do |t|
-    t.string "CreateBatteryTypes", limit: 255
+    t.string "name", limit: 255
   end
 
   create_table "electronic_devices", force: :cascade do |t|

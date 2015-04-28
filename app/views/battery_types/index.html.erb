@@ -1,25 +1,32 @@
 <h1>Listing Battery Types</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Device</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @battery_types %>
 
-<% @battery_types.each do |battery_type| %>
-  <tr>
-    <td><%= battery_type.name %></td>
-    <td><%= battery_type.device_name %></td>
-    <td><%= link_to "Show", battery %></td>
-    <td><%= link_to "Edit", edit_battery_path(battery) %></td>
-    <td><%= link_to "Remove", battery, method: :delete, data: { confirm: "Are you sure?" } %></td>
-  </tr>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Device</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @battery_types.each do |battery_type| %>
+    <tr>
+      <td><%= battery_type.name %></td>
+      <td><%= link_to "Show", battery_type %></td>
+      <td><%= link_to "Edit", edit_battery_type_path(battery_type) %></td>
+      <td><%= link_to "Remove", battery_type, method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+<% else %>
+
+The battery type list is empty
+
 <% end %>
-</table>
 
 <br>
 
-<%= link_to "New battery", new_battery_path %>
+<%= link_to "New battery type", new_battery_type_path %>

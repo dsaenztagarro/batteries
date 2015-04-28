@@ -41,7 +41,7 @@ module SimpleCrud
     # POST /models
     # POST /models.json
     def create
-      model! model_klass.new(params[:model])
+      model! model_klass.new(model_params)
 
       respond_to do |wants|
         if model.save
