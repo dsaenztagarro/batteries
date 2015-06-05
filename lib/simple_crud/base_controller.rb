@@ -12,6 +12,11 @@ module SimpleCrud
       def crud_for(klass, opts = {})
         @model_klass = klass
       end
+
+      def default_crud
+        debugger
+        self
+      end
     end
 
     # GET /models
