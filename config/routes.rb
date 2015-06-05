@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
-  resources :batteries
-  resources :battery_types
-  resources :electronic_devices
+  resources :devices
+  resources :device_attributes
+  resources :device_attribute_types
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

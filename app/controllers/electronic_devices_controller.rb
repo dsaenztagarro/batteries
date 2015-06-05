@@ -1,2 +1,0 @@
-class ElectronicDevicesController < ApplicationController
-end
