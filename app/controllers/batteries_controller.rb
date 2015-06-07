@@ -1,6 +1,5 @@
 class BatteriesController < SimpleCrud::BaseController
   default_crud
-  # crud_for Battery
 
   private
 
