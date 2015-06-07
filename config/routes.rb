@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+  get 'test' => 'main#test'
+  get 'testlogin' => 'main#test_login'
+
   resources :devices
   resources :device_attributes
   resources :device_attribute_types
