@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require plugins/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min.css
+ *= require plugins/bootstrap-3.2.0/css/bootstrap.min.css
+ *= require plugins/font-awesome-4.2.0/css/font-awesome.min.css
+ *= require css/animate.min.css
+ *= require css/style.min.css
+ *= require css/style-responsive.min.css
+ *= require css/theme/default.css
  */
