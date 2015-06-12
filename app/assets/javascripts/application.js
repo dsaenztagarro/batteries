@@ -34,10 +34,4 @@
 //= require js/dashboard.min.js
 //= require js/apps.min.js
 // END PAGE LEVEL JS
-//
-//= require_tree .
 
-$(document).ready(function() {
-  App.init();
-  Dashboard.init();
-});
