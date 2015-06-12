@@ -1,7 +1,7 @@
 class CreateDevice < ActiveRecord::Migration
   def change
     create_table :devices do |t|
-      t.string name
+      t.string :name
     end
 
     create_table :device_attributes do |t|

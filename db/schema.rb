@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427221939) do
-
-  create_table "batteries", force: :cascade do |t|
-    t.integer "battery_type_id",      limit: 4
-    t.integer "electronic_device_id", limit: 4
-  end
-
-  add_index "batteries", ["battery_type_id"], name: "index_batteries_on_battery_type_id", using: :btree
-  add_index "batteries", ["electronic_device_id"], name: "index_batteries_on_electronic_device_id", using: :btree
+ActiveRecord::Schema.define(version: 20150427221812) do
 
   create_table "device_attribute_types", force: :cascade do |t|
     t.string "name", limit: 255
@@ -35,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150427221939) do
   add_index "device_attributes", ["device_id"], name: "index_device_attributes_on_device_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
-    t.string "CreateDevice", limit: 255
+    t.string "name", limit: 255
   end
 
 end
