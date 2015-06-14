@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      device:
+        name: "Name"
+      device_attribute_name:
+        name: "Name"

@@ -26,5 +26,6 @@ module Batteries
     config.assets.paths += Dir["#{Rails.root}/vendor/assets/theme/*"]
 
     config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('/app/validators')
   end
 end

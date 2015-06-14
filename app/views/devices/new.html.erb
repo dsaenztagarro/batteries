@@ -1,4 +1,4 @@
 <%= form_for @device, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :name %>
+  <%= f.text_field_group :name %>
   <%= f.submit "Create" %>
 <% end %>
