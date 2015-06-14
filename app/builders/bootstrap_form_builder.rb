@@ -1,10 +1,13 @@
+# This class extends default form builder to adapt to Bootstrap theme
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
+  # Overrides default label method of FormBuilder
   def label(method, options = {})
     @template.label(@object_name, method,
                     options.merge(class: 'col-md-3 control-label'))
   end
 
+  # Overrides default text_field method of FormBuilder
   def text_field(method, options = {})
     @template.content_tag :div, class: 'col-md-9' do
       @template.text_field(
@@ -20,6 +23,13 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def form_group_for(field_helper, method)
     @template.content_tag :div, class: 'form-group' do
       label(method) + send(field_helper, method)
+    end
+  end
+
+  # Overrides default submit method of FormBuilder
+  def submit(value=nil)
+    @template.content_tag :div, class: 'col-md-9' do
+      button(value, class: 'btn btn-sm btn-success')
     end
   end
 end
