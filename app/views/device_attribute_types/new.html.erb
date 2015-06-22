@@ -1,5 +1,1 @@
-<%= form_for @battery_type, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
-  <%= f.submit "Create" %>
-<% end %>
+<%= render partial: 'form', locals: {device_attribute_type: @device_attribute_type} %>
