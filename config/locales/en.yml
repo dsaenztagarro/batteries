@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  model:
+    device: "Device"
+    device_attribute_type: "Device attribute type"
+
   activerecord:
     attributes:
       device:

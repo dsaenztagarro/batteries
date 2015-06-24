@@ -178,6 +178,10 @@
 			<h1 class="page-header">Basic Tables <small>header small text goes here...</small></h1>
 			<!-- end page-header -->
 
+      <% if flash[:notice] %>
+        <div class="alert alert-success fade in m-b-15"><%= flash[:notice] %></div>
+      <% end %>
+
       <%= yield %>
 
 		</div>
