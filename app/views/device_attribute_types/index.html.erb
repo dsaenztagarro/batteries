@@ -31,9 +31,7 @@
               <% @device_attribute_types.each do |device_attribute_type| %>
                 <tr>
                   <td><%= device_attribute_type.name %></td>
-                  <td><%= link_to "Show", device_attribute_type %></td>
-                  <td><%= link_to "Edit", edit_device_attribute_type_path(device_attribute_type) %></td>
-                  <td><%= link_to "Remove", device_attribute_type, method: :delete, data: { confirm: "Are you sure?" } %></td>
+                  <%= render partial: '/shared/operations', locals: { object: device_attribute_type } %>
                 </tr>
               <% end %>
               </tbody>

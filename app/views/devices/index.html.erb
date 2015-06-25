@@ -29,21 +29,7 @@
             <% @devices.each do |device| %>
               <tr>
                 <td><%= device.name %></td>
-                <td>
-                  <%= link_to device do %>
-                    <i class="fa fa-lg fa-eye"></i>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to edit_device_path(device) do %>
-                    <i class="fa fa-lg fa-edit"></i>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to device, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                    <i class="fa fa-lg fa-trash-o"></i>
-                  <% end %>
-                </td>
+                <% render partial: '/shared/operations', locals: { object: device } %>
               </tr>
             <% end %>
             </tbody>
