@@ -20,18 +20,30 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th class="col-xs-1"></th>
+                <th class="col-xs-1"></th>
+                <th class="col-xs-1"></th>
               </tr>
             </thead>
             <tbody>
             <% @devices.each do |device| %>
               <tr>
                 <td><%= device.name %></td>
-                <td><%= link_to 'Show', device %></td>
-                <td><%= link_to 'Edit', edit_device_path(device) %></td>
-                <td><%= link_to 'Remove', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                  <%= link_to device do %>
+                    <i class="fa fa-lg fa-eye"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to edit_device_path(device) do %>
+                    <i class="fa fa-lg fa-edit"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to device, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="fa fa-lg fa-trash-o"></i>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
             </tbody>
