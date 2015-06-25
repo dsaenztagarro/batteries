@@ -25,6 +25,10 @@ module Batteries
 
     config.assets.paths += Dir["#{Rails.root}/vendor/assets/theme/*"]
 
+    # Using Font Awesome
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'theme', 'plugins', 'font-awesome-4.2.0', 'fonts')
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
+
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('/app/validators')
   end
