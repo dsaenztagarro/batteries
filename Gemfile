@@ -11,6 +11,7 @@ gem 'responders', '~> 2.0'
 gem 'searchkick'
 gem 'sqlite3'
 gem 'turbolinks'
+gem 'virtus'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
