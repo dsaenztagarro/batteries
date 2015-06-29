@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'testlogin' => 'main#test_login'
 
   resources :devices
-  resources :device_attributes
-  resources :device_attribute_types
+  resources :device_properties
+  resources :device_property_types
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -22,13 +22,13 @@
 en:
   model:
     device: "Device"
-    device_attribute_type: "Device attribute type"
+    device_property_type: "Device property type"
 
   activerecord:
-    attributes:
+    properties:
       device:
         name: "Name"
-      device_attribute_name:
+      device_property_name:
         name: "Name"
 
   submit:

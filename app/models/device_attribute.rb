@@ -1,2 +1,2 @@
-class DeviceAttribute < ActiveRecord::Base
+class DeviceProperty < ActiveRecord::Base
 end

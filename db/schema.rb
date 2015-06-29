@@ -13,18 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20150625144401) do
 
-  create_table "device_attribute_types", force: :cascade do |t|
+  create_table "device_properties", force: :cascade do |t|
+    t.integer "device_id",               limit: 4
+    t.integer "device_property_type_id", limit: 4
+    t.string  "value",                   limit: 255
+  end
+
+  add_index "device_properties", ["device_id"], name: "index_device_properties_on_device_id", using: :btree
+  add_index "device_properties", ["device_property_type_id"], name: "index_device_properties_on_device_property_type_id", using: :btree
+
+  create_table "device_property_types", force: :cascade do |t|
     t.string "name", limit: 255
   end
-
-  create_table "device_attributes", force: :cascade do |t|
-    t.integer "device_id",                limit: 4
-    t.integer "device_attribute_type_id", limit: 4
-    t.string  "value",                    limit: 255
-  end
-
-  add_index "device_attributes", ["device_attribute_type_id"], name: "index_device_attributes_on_device_attribute_type_id", using: :btree
-  add_index "device_attributes", ["device_id"], name: "index_device_attributes_on_device_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string "name", limit: 255

@@ -29,7 +29,7 @@
             <% @devices.each do |device| %>
               <tr>
                 <td><%= device.name %></td>
-                <% render partial: '/shared/operations', locals: { object: device } %>
+                <%= render partial: '/shared/operations', locals: { object: device } %>
               </tr>
             <% end %>
             </tbody>

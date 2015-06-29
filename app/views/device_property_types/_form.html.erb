@@ -1,0 +1,6 @@
+<%= panel_for t('model.device_property_type') do %>
+  <%= form_horizontal_for device_property_type do |f| %>
+    <%= f.text_field_group :name %><br />
+    <%= f.submit %>
+  <% end %>
+<% end %>
