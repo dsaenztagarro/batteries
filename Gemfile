@@ -6,7 +6,9 @@ gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'mysql'
+gem 'paperclip'
 gem 'responders', '~> 2.0'
+gem 'searchkick'
 gem 'sqlite3'
 gem 'turbolinks'
 
@@ -33,11 +35,15 @@ gem 'simplecrud', path: '~/Projects/gems/simplecrud'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'byebug'
   gem 'cane'
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'database_cleaner'
+  gem 'factory_girl'
   gem 'reek'
   gem 'rubocop'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
