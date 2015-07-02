@@ -1,6 +1,16 @@
 <%= panel_for t('model.device') do %>
   <%= form_horizontal_for device do |f| %>
     <%= f.text_field_group :name %><br />
+
+    <%= f.input_group_for :device_properties %>
+
+    <ul id="device-property-list">
+    <%= f.fields_for :properties do |builder| %>
+      <%= render 'property_fields', f: builder %>
+    <% end %>
+    </ul>
+    <%= link_to "Add Another", "#add", :id => "add-another" %>
+
     <%= f.submit %>
   <% end %>
 <% end %>

@@ -34,4 +34,5 @@
 //= require js/dashboard.min.js
 //= require js/apps.min.js
 // END PAGE LEVEL JS
-
+//
+//= require device

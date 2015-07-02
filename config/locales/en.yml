@@ -24,6 +24,9 @@ en:
     device: "Device"
     device_property_type: "Device property type"
 
+  inputgroup:
+    device_properties: "Properties"
+
   activerecord:
     properties:
       device:
