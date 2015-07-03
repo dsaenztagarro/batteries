@@ -5,11 +5,11 @@
     <%= f.input_group_for :device_properties %>
 
     <ul id="device-property-list">
-    <%= f.fields_for :properties do |builder| %>
-      <%= render 'property_fields', f: builder %>
-    <% end %>
+			<%= f.fields_for :properties do |builder| %>
+				<%= render 'property_fields', f: builder %>
+			<% end %>
+			<%= link_to "Add Property", id: 'add-device-property', class: 'btn btn-primary btn-sm' %>
     </ul>
-    <%= link_to "Add Another", "#add", :id => "add-another" %>
 
     <%= f.submit %>
   <% end %>

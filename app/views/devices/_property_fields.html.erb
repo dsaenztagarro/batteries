@@ -1,5 +1,5 @@
 <li>
   <%= f.check_box :_destroy %>
-  <%= f.collection_select :device_property, :device_property_type_id, DevicePropertyType.all, :id, :name %>
+  <%= f.collection_select :device_property_type_id, DevicePropertyType.all, :id, :name %>
   <%= f.text_field :value %>
 </li>
