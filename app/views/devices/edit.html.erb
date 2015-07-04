@@ -1,1 +1,8 @@
-<%= render partial: 'form', locals: {device: @device} %>
+<%= panel_action_for @device do %>
+  <%= render 'form', device: @device %>
+
+  <fieldset>
+    <legend>New Property</legend>
+	  <%= render 'properties/new', property: Property.new(attributable: @device) %>
+  </fieldset>
+<% end %>

@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   get 'test' => 'main#test'
   get 'testlogin' => 'main#test_login'
 
-  resources :devices
-  resources :device_properties
-  resources :device_property_types
+  concern :attributable do
+    resources :properties
+  end
+
+  resources :devices, concerns: :attributable
+
+  resources :property_types
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

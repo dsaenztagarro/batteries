@@ -4,13 +4,14 @@ class CreateDevice < ActiveRecord::Migration
       t.string :name
     end
 
-    create_table :device_properties do |t|
-      t.belongs_to :device, index: true
-      t.belongs_to :device_property_type, index: true
+    create_table :properties do |t|
       t.string :value
+      t.belongs_to :property_type, index: true
+      t.references :attributable, polymorphic: true, index: true
+      t.timestamps null: false
     end
 
-    create_table :device_property_types do |t|
+    create_table :property_types do |t|
       t.string :name
     end
   end

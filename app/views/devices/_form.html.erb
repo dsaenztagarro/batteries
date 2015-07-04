@@ -1,16 +1,14 @@
-<%= panel_for t('model.device') do %>
-  <%= form_horizontal_for device do |f| %>
-    <%= f.text_field_group :name %><br />
+<%= form_for device do |f| %>
+	<%= f.text_field_group :name, disabled: @disabled %>
 
-    <%= f.input_group_for :device_properties %>
-
+  <fieldset>
+    <legend>Properties</legend>
     <ul id="device-property-list">
-			<%= f.fields_for :properties do |builder| %>
-				<%= render 'property_fields', f: builder %>
-			<% end %>
-			<%= link_to "Add Property", id: 'add-device-property', class: 'btn btn-primary btn-sm' %>
+    <%= f.fields_for :properties do |builder| %>
+      <%= render 'property_fields', f: builder %>
+    <% end %>
     </ul>
+  </fiedset>
 
-    <%= f.submit %>
-  <% end %>
+	<%= f.submit %>
 <% end %>

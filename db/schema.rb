@@ -13,20 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20150625144401) do
 
-  create_table "device_properties", force: :cascade do |t|
-    t.integer "device_id",               limit: 4
-    t.integer "device_property_type_id", limit: 4
-    t.string  "value",                   limit: 255
-  end
-
-  add_index "device_properties", ["device_id"], name: "index_device_properties_on_device_id", using: :btree
-  add_index "device_properties", ["device_property_type_id"], name: "index_device_properties_on_device_property_type_id", using: :btree
-
-  create_table "device_property_types", force: :cascade do |t|
+  create_table "devices", force: :cascade do |t|
     t.string "name", limit: 255
   end
 
-  create_table "devices", force: :cascade do |t|
+  create_table "properties", force: :cascade do |t|
+    t.string   "value",             limit: 255
+    t.integer  "property_type_id",  limit: 4
+    t.integer  "attributable_id",   limit: 4
+    t.string   "attributable_type", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "properties", ["attributable_type", "attributable_id"], name: "index_properties_on_attributable_type_and_attributable_id", using: :btree
+  add_index "properties", ["property_type_id"], name: "index_properties_on_property_type_id", using: :btree
+
+  create_table "property_types", force: :cascade do |t|
     t.string "name", limit: 255
   end
 

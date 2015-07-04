@@ -20,18 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  action:
+    new: "New"
+    edit: "Edit"
+    show: "Show"
+
+  alert:
+    success: "Success!"
+    info: "Info!"
+    warning: "Warning!"
+    error: "Error!"
+
   model:
     device: "Device"
-    device_property_type: "Device property type"
+    property_type: "Device property type"
 
   inputgroup:
-    device_properties: "Properties"
+    properties: "Properties"
 
   activerecord:
     properties:
       device:
         name: "Name"
-      device_property_name:
+      property_type:
         name: "Name"
 
   submit:

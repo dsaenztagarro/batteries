@@ -4,11 +4,28 @@ module FormHelper
     render layout: '/shared/panel', locals: { title: title }, &block
   end
 
-  # Creates form with default bootstrap class
-  def form_horizontal_for(record, options = {}, &block)
+  def panel_action_for(object, &block)
+    action = t("action.#{params[:action]}")
+    model = t("model.#{object.class.to_s.downcase}")
+    title = "#{action} #{model}"
+    panel_for(title, &block)
+  end
+
+  # Decorates super with bootstrap
+  # Overwrites definition at ActionView::Helpers::FormHelper
+  def form_for(record, *args, &block)
+    options = args.last.is_a?(Hash) ? args.pop : {}
     options[:html] = {} unless options.key? :html
     options[:html].merge!(class: 'form-horizontal')
-    form_for(record, options, &block)
+    super(record, *(args << options), &block)
+  end
+
+  [:form_for, :fields_for, :form_remote_for, :remote_form_for].each do |method|
+    define_method "disabled_#{method}".to_s do |object_name, *args, &proc|
+      options = args.last.is_a?(Hash) ? args.pop : {}
+      options.update(builder: DisabledFormBuilder)
+      send(method, object_name, *(args << options), &proc)
+    end
   end
 
   def link_to_add_fields(name, f, association)

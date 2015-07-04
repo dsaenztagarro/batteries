@@ -1,0 +1,5 @@
+<%= form_for [@device, Property.new] do |f| %>
+  <%= f.collection_select_group :property_type_id, PropertyType.all, :id, :name %>
+  <%= f.text_field_group :value %>
+  <%= f.submit %>
+<% end %>
