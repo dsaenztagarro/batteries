@@ -3,11 +3,18 @@
 
   <fieldset>
     <legend>Properties</legend>
-    <ul id="device-property-list">
-    <%= f.fields_for :properties do |builder| %>
-      <%= render 'property_fields', f: builder %>
-    <% end %>
-    </ul>
+		<table class='table table-striped'>
+			<thead>
+				<th>Name</th>
+				<th>Value</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+				<%= f.fields_for :properties do |builder| %>
+					<%= render 'property_fields', f: builder %>
+				<% end %>
+			</tbody>
+		</table>
   </fiedset>
 
 	<%= f.submit %>

@@ -7,9 +7,20 @@
     <% if @device.properties.empty? %>
       <%= alert_info 'The property list is empty' %>
     <% else %>
-      <%= f.fields_for :properties do |builder| %>
-        <%= render 'property_fields', f: builder %>
-      <% end %>
+ 			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th class='col-md-2'>Name</th>
+						<th class='col-md-10'>Value</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%= f.fields_for :properties do |builder| %>
+						<%= render 'property_fields', f: builder %>
+					<% end %>
+				</tbody>
+			</table>
     <% end %>
   <% end %>
 <% end %>

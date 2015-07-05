@@ -1,13 +1,12 @@
-<table class="table">
-  <tbody>
-    <td>
-      <%= f.check_box :_destroy %>
-    </td>
-    <td>
-      <%= f.label :property_type %>
-    </td>
-    <td>
-      <%= f.text_field :value %>
-    </td>
-  </tbody>
-</table>
+<tr>
+	<td>
+		<%= f.hidden_field :id %>
+		<label><%= f.object.property_type_name %></label>
+	</td>
+	<td>
+		<%= f.text_field :value %>
+	</td>
+	<td>
+		<%= f.check_box :_destroy %>
+	</td>
+</tr>
