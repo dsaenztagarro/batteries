@@ -33,22 +33,6 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
- # def collection_select_group(method, *args, &block)
- #   div_form_group do
- #     label(method) + collection_select(method, *args, &block)
- #   end
- # end
-#
- # def text_field_group(method)
- #   form_group_for :text_field, method
- # end
-#
- # def form_group_for(field_helper, method)
- #   div_form_group do
- #     label(method) + send(field_helper, method)
- #   end
- # end
-
   def input_group_for(text, &block)
     @template.content_tag :h4, class: 'm-t-20' do
       text
