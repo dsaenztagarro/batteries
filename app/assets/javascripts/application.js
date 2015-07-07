@@ -30,7 +30,7 @@
 //= require plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js
 //= require plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js
 //= require plugins/bootstrap-datepicker/js/bootstrap-datepicker.js
-//= require js/dashboard.min.js
+//= require js/dashboard.js
 //= require js/apps.js
 // END PAGE LEVEL JS
 //
