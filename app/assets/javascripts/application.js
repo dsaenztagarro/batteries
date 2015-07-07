@@ -11,10 +11,9 @@
 // about supported directives.
 //
 // BEGIN BASE JS
-//= require jquery
+//= require plugins/jquery-1.8.2/jquery-1.8.2.min.js
 //= require jquery_ujs
 //= require turbolinks
-//= require plugins/jquery-1.8.2/jquery-1.8.2.min.js
 //= require plugins/jquery-ui-1.10.4/ui/minified/jquery-ui.min.js
 //= require plugins/bootstrap-3.2.0/js/bootstrap.min.js
 //= require plugins/slimscroll/jquery.slimscroll.min.js
@@ -32,7 +31,7 @@
 //= require plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js
 //= require plugins/bootstrap-datepicker/js/bootstrap-datepicker.js
 //= require js/dashboard.min.js
-//= require js/apps.min.js
+//= require js/apps.js
 // END PAGE LEVEL JS
 //
 //= require device

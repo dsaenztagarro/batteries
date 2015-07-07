@@ -1,5 +1,5 @@
-<%= form_for [@device, Property.new] do |f| %>
-  <%= f.collection_select_group :property_type_id, PropertyType.all, :id, :name %>
-  <%= f.text_field_group :value %>
+<%= form_for [@device, Property.new], remote: true do |f| %>
+  <%= f.collection_select :property_type_id, PropertyType.all, :id, :name %>
+  <%= f.text_field :value %>
   <%= f.submit %>
 <% end %>

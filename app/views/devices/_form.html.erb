@@ -1,7 +1,7 @@
-<%= form_for device do |f| %>
+<%= form_for device, builder: BootstrapFormBuilder, remote: true do |f| %>
 	<%= f.text_field_group :name, disabled: @disabled %>
 
-  <fieldset>
+  <fieldset id='properties'>
     <legend>Properties</legend>
 		<table class='table table-striped'>
 			<thead>
@@ -15,7 +15,7 @@
 				<% end %>
 			</tbody>
 		</table>
-  </fiedset>
+  </fieldset>
 
 	<%= f.submit %>
 <% end %>

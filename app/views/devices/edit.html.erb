@@ -3,6 +3,7 @@
 
   <fieldset>
     <legend>New Property</legend>
-	  <%= render 'properties/new', property: Property.new(attributable: @device) %>
   </fieldset>
+  <%= render 'properties/new', device: @device %>
 <% end %>
+

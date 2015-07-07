@@ -1,14 +1,22 @@
 class PropertiesController < ApplicationController
+  respond_to :html, :js, :json
 
   def create
+    debugger
     @attributable = find_attributable
     @property = @attributable.properties.build(property_params)
-    if @property.save
-      flash[:notice] = 'Successfully created property'
-      redirect_to @attributable
-    else
-      flash[:error] = 'Error adding property.'
-    end
+
+		respond_to do |format|
+			if @property.save
+      	flash[:notice] = 'Successfully created property'
+				format.html { redirect_to(@attributable) }
+				format.js {}
+			else
+      	flash[:error] = 'Error adding property.'
+				format.html { render :action => "new" }
+				format.json  { render :json => model.errors, :status => :unprocessable_entity }
+			end
+		end
   end
 
   private

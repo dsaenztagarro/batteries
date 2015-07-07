@@ -40,10 +40,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   # Overrides default submit method of FormBuilder
-  def submit(value=nil)
+  def submit(value=nil, options={})
     div_form_group do
       div_col_md_9 do
-        button(value, class: 'btn btn-sm btn-success')
+				submit_orig(value, options.merge(class: 'btn btn-sm btn-success'))
+        # button(value, class: 'btn btn-sm btn-success')
       end
     end
   end
