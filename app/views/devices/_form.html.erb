@@ -8,5 +8,7 @@
   <h4 class='m-t-20'>Properties</h4>
   <%= nested_properties(@device, f) %>
 
-	<%= f.submit %>
+  <% if params[:action].eql? 'edit' %>
+	  <%= f.submit %>
+  <% end %>
 <% end %>
