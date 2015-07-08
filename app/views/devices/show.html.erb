@@ -1,26 +1,3 @@
 <%= panel_action_for @device do %>
- <%= form_for @device do |f| %>
-   <%= f.text_field_group :name %>
-
-    <h4 class='m-t-20'>Properties</h4>
-
-    <% if @device.properties.empty? %>
-      <%= alert_info 'The property list is empty' %>
-    <% else %>
- 			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th class='col-md-2'>Name</th>
-						<th class='col-md-10'>Value</th>
-						<th>Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%= f.fields_for :properties do |builder| %>
-						<%= render 'property_fields', f: builder %>
-					<% end %>
-				</tbody>
-			</table>
-    <% end %>
-  <% end %>
+  <%= render 'form', device: @device, disabled: true %>
 <% end %>

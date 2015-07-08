@@ -1,21 +1,12 @@
-<%= form_for device, builder: BootstrapFormBuilder, remote: true do |f| %>
+<% disabled ||= false %>
+<div class='panel-body'>
+  <a href='<%= devices_path %>' class='btn btn-default'><%= t('button.back') %></a>
+</div>
+<%= form_for device do |f| %>
 	<%= f.text_field_group :name, disabled: @disabled %>
 
-  <fieldset id='properties'>
-    <legend>Properties</legend>
-		<table class='table table-striped'>
-			<thead>
-				<th>Name</th>
-				<th>Value</th>
-				<th>Delete</th>
-			</thead>
-			<tbody>
-				<%= f.fields_for :properties do |builder| %>
-					<%= render 'property_fields', f: builder %>
-				<% end %>
-			</tbody>
-		</table>
-  </fieldset>
+  <h4 class='m-t-20'>Properties</h4>
+  <%= nested_properties(@device, f) %>
 
 	<%= f.submit %>
 <% end %>

@@ -1,9 +1,8 @@
 <%= panel_action_for @device do %>
   <%= render 'form', device: @device %>
+<% end %>
 
-  <fieldset>
-    <legend>New Property</legend>
-  </fieldset>
-  <%= render 'properties/new', device: @device %>
+<%= panel_for 'New Property' do %>
+  <%= render 'properties/new', attachable: @device %>
 <% end %>
 

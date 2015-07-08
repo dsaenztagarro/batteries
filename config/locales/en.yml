@@ -25,11 +25,18 @@ en:
     edit: "Edit"
     show: "Show"
 
+  button:
+    back: "Back to index"
+
   alert:
     success: "Success!"
     info: "Info!"
     warning: "Warning!"
     error: "Error!"
+
+  message:
+    property:
+      list_empty: "The property list is empty"
 
   model:
     device: "Device"
