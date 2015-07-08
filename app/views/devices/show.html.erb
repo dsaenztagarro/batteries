@@ -1,3 +1,4 @@
 <%= panel_action_for @device do %>
+  <%= crud_buttons(@device) %>
   <%= render 'form', device: @device, disabled: true %>
 <% end %>

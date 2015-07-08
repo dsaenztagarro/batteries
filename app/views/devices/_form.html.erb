@@ -1,7 +1,4 @@
 <% disabled ||= false %>
-
-<%= crud_buttons(device) %>
-
 <%= form_for device do |f| %>
 	<%= f.text_field_group :name, disabled: @disabled %>
 

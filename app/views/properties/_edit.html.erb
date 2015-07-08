@@ -1,19 +1,21 @@
 <% disabled ||= false %>
-<% if properties.empty? %>
-  <%= alert_info t('message.property.list_empty') %>
-<% else %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th class='col-md-2'>Name</th>
-        <th class='col-md-10'>Value</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= f.fields_for :properties do |builder| %>
-        <%= render 'properties/edit_record', f: builder %>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<div id='nested-properties'>
+  <% if properties.empty? %>
+    <%= alert_info t('message.property.list_empty') %>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class='col-md-2'>Name</th>
+          <th class='col-md-10'>Value</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= f.fields_for :properties do |builder| %>
+          <%= render 'properties/edit_record', f: builder %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
