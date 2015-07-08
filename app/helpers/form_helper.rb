@@ -1,5 +1,9 @@
 module FormHelper
 
+  def crud_buttons(model)
+    render 'shared/crud_buttons', model: model
+  end
+
   def panel_for(title, &block)
     render layout: '/shared/panel', locals: { title: title }, &block
   end

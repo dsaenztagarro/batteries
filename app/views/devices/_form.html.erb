@@ -1,7 +1,7 @@
 <% disabled ||= false %>
-<div class='panel-body'>
-  <a href='<%= devices_path %>' class='btn btn-default'><%= t('button.back') %></a>
-</div>
+
+<%= crud_buttons(device) %>
+
 <%= form_for device do |f| %>
 	<%= f.text_field_group :name, disabled: @disabled %>
 

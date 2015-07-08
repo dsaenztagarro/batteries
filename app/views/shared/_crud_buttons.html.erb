@@ -1,0 +1,8 @@
+<% active_show = params[:action] == 'show' ? 'active' : '' %>
+<% active_edit = params[:action] == 'edit' ? 'active' : '' %>
+
+<div class='btn-group'>
+  <a href='<%= devices_path %>' class='btn btn-white'><%= t('button.back') %></a>
+  <a href='<%= polymorphic_path(model) %>' class='btn btn-white <%= active_show %>'><%= t('action.show') %></a>
+  <a href='<%= edit_polymorphic_path(model) %>' class='btn btn-white <%= active_edit %>'><%= t('action.edit') %></a>
+</div>
