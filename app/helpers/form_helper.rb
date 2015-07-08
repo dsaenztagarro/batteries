@@ -40,4 +40,10 @@ module FormHelper
     end
     link_to(name, '#', class: 'btn btn-primary btn-sm m-r-5 add_fields', data: {id: id, fields: fields.gsub("\n", '')})
   end
+
+  def submit_on_edit(builder)
+    if params[:action].eql? 'edit'
+      builder.submit
+    end
+  end
 end
