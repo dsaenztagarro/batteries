@@ -1,7 +1,9 @@
 # This class extends default form builder to adapt to Bootstrap theme
 #
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
+  alias :label_orig :label
   alias :submit_orig :submit
+  alias :text_field_orig :text_field
 
   # Overrides default label method of FormBuilder
   def label(method, options = {})
@@ -43,8 +45,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def submit(value=nil, options={})
     div_form_group do
       div_col_md_9 do
-				submit_orig(value, options.merge(class: 'btn btn-sm btn-success'))
-        # button(value, class: 'btn btn-sm btn-success')
+        options.merge!(class: 'btn btn-sm btn-success')
+        # Disable button when the form is submitted
+        data_options = options[:data] || {}
+        options[:data] = data_options.merge(disable_with: 'Please wait..')
+				submit_orig(value, options)
       end
     end
   end
