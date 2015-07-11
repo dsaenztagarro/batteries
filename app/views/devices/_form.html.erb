@@ -1,9 +1,11 @@
 <% disabled ||= false %>
 <%= form_for device do |f| %>
-	<%= f.text_field_group :name, disabled: @disabled %>
+
+  <h4 class='m-t-20'>Details</h4>
+	<%= f.text_field_group :name, disabled: disabled %>
 
   <h4 class='m-t-20'>Properties</h4>
-  <%= nested_properties(@device, f) %>
+  <%= nested_properties(device, f) %>
 
   <%= submit_on_edit(f) %>
 <% end %>
