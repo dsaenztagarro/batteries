@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
+gem 'acts-as-taggable-on'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
