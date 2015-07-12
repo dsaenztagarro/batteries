@@ -8,6 +8,11 @@ module FormHelper
     render layout: '/shared/panel', locals: { title: title }, &block
   end
 
+  def header_section(key)
+    title = t("header.#{key}")
+    render '/shared/header_section', title: title
+  end
+
   def panel_action_for(object, &block)
     action = t("action.#{params[:action]}")
     model = t("model.#{object.class.to_s.downcase}")

@@ -298,7 +298,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql
-  paperclip
+  paperclip (~> 4.3)
   rails (= 4.2.1)
   reek
   responders (~> 2.0)

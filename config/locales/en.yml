@@ -25,14 +25,25 @@ en:
     edit: "Edit"
     show: "Show"
 
-  button:
-    back: "Back to index"
+  activerecord:
+    properties:
+      device:
+        name: "Name"
+      property_type:
+        name: "Name"
 
   alert:
     success: "Success!"
     info: "Info!"
     warning: "Warning!"
     error: "Error!"
+
+  button:
+    back: "Back to index"
+
+  header:
+    details: "Details"
+    properties: "Properties"
 
   message:
     property:
@@ -45,13 +56,11 @@ en:
   inputgroup:
     properties: "Properties"
 
-  activerecord:
-    properties:
-      device:
-        name: "Name"
-      property_type:
-        name: "Name"
-
   submit:
     create: "Add %{model}"
     update: "Confirm changes to %{model}"
+
+  views:
+    labels:
+      device:
+        geek_list: "Tags (separated by commas)"

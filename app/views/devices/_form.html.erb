@@ -1,10 +1,23 @@
 <% disabled ||= false %>
 <%= form_for device do |f| %>
 
-  <h4 class='m-t-20'>Details</h4>
+  <%= image_tag device.avatar.url, size: '140x140', class: 'img-thumbnail' %>
+
+  <%= header_section 'details' %>
 	<%= f.text_field_group :name, disabled: disabled %>
 
-  <h4 class='m-t-20'>Properties</h4>
+  <% if params[:action] == 'show' %>
+    <% device.geek_list.each do |tag| %>
+      <span class='label label-info'><%= tag %></span>
+    <% end %>
+  <% else %>
+    <%= f.text_field_group :geek_list %>
+  <% end %>
+
+
+  <%= f.file_field :avatar, disabled: disabled if params[:action] == 'show' %>
+
+  <%= header_section 'properties' %>
   <%= nested_properties(device, f) %>
 
   <%= submit_on_edit(f) %>
