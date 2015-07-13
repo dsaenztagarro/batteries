@@ -1,10 +1,9 @@
 # Devices present at home
 class Device < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
+  belongs_to :category, class_name: 'DeviceCategory'
   has_many :properties, :as => :attributable, :dependent => :destroy
   accepts_nested_attributes_for :properties, allow_destroy: true
-
-  acts_as_taggable_on :geek
 
   has_attached_file :avatar,
                     :styles => { :medium => "300x300>", :thumb => "100x100>" },

@@ -3,31 +3,28 @@
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   alias :label_orig :label
   alias :submit_orig :submit
-  alias :text_field_orig :text_field
 
   # Overrides default label method of FormBuilder
   def label(method, options = {})
-    @template.label(@object_name, method,
-                    options.merge(class: 'col-md-3')) # control-label
+    super(method, options.merge(class: 'col-md-3'))
   end
 
   # Overrides default text_field method of FormBuilder
   def text_field(method, options = {})
     div_col_md_9 do
-      @template.text_field(
-        @object_name, method, objectify_options(options).merge(class: 'form-control')
-      )
+      super(method, options.merge(class: 'form-control'))
     end
   end
 
-  def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+  # Overrides default text_field method of FormBuilder
+  def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options.merge!(class: 'form-control')
     div_col_md_9 do
-      @template.collection_select(@object_name, method, collection, value_method, text_method, objectify_options(options), @default_options.merge(html_options))
+      super(method, choices, options, html_options, &block)
     end
   end
 
-  %w(collection_select text_field).each do |field|
+  %w(text_field select).each do |field|
     define_method "#{field}_group" do |method, *args, &block|
       div_form_group do
         label(method) + send(field, method, *args, &block)

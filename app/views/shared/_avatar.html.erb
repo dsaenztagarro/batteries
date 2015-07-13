@@ -1,0 +1,10 @@
+<%= header_section 'avatar' %>
+<% if show? %>
+  <% if model.avatar.present? %>
+    <%= image_tag model.avatar.url, size: '140x140', class: 'img-thumbnail' %>
+  <% else %>
+    <%= alert_info t('message.avatar.empty') %>
+  <% end %>
+<% else %>
+  <%= f.file_field :avatar %>
+<% end %>

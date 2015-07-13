@@ -5,9 +5,8 @@ class DevicesController < SimpleCrud::BaseController
   private
 
   def device_params
-    debugger
     params.require(:device)
-      .permit(:avatar, :geek_list, :name,
+      .permit(:avatar, :device_filter_list, :name,
               properties_attributes: [:_destroy, :id, :value])
   end
 end

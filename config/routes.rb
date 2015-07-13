@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :devices, concerns: :attributable
+  resources :device_categories
 
   resources :property_types
 

@@ -2,6 +2,11 @@ class CreateDevice < ActiveRecord::Migration
   def change
     create_table :devices do |t|
       t.string :name
+      t.references :device_category
+    end
+
+    create_table :device_categories do |t|
+      t.string :name
     end
 
     create_table :properties do |t|

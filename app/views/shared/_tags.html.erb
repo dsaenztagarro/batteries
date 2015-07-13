@@ -1,0 +1,10 @@
+<% model.tag_types.each do |tag| %>
+  <% if show? %>
+    <% model.send(tag_list).each do |tag| %>
+      <span class='label label-info'><%= tag %></span>
+    <% end %>
+  <% else %>
+    <%= f.label tag
+    <%= f.text_field :geek_list, model: model.send(tag_list).to_s %>
+  <% end %>
+<% end %>

@@ -42,15 +42,19 @@ en:
     back: "Back to index"
 
   header:
+    avatar: "Avatar"
     details: "Details"
     properties: "Properties"
 
   message:
     property:
       list_empty: "The property list is empty"
+    avatar:
+      empty: "No avatar uploaded"
 
   model:
     device: "Device"
+    device_category: "Device category"
     property_type: "Device property type"
 
   inputgroup:

@@ -1,24 +1,12 @@
 <% disabled ||= false %>
 <%= form_for device do |f| %>
-
-  <%= image_tag device.avatar.url, size: '140x140', class: 'img-thumbnail' %>
-
   <%= header_section 'details' %>
 	<%= f.text_field_group :name, disabled: disabled %>
+	<%= f.select_group :category, options_from_collection_for_select(DeviceCategory.all, :id, :name) %>
 
-  <% if params[:action] == 'show' %>
-    <% device.geek_list.each do |tag| %>
-      <span class='label label-info'><%= tag %></span>
-    <% end %>
-  <% else %>
-    <%= f.text_field_group :geek_list %>
+  <% if edit? %>
+    <%= avatar_for(device, f) %>
+    <%= properties_for(device, f) %>
+    <%= submit(f) %>
   <% end %>
-
-
-  <%= f.file_field :avatar, disabled: disabled if params[:action] == 'show' %>
-
-  <%= header_section 'properties' %>
-  <%= nested_properties(device, f) %>
-
-  <%= submit_on_edit(f) %>
 <% end %>
