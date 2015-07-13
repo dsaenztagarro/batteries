@@ -16,7 +16,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  # Overrides default text_field method of FormBuilder
+  # Overrides default select method of FormBuilder
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options.merge!(class: 'form-control')
     div_col_md_9 do
@@ -24,7 +24,15 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  %w(text_field select).each do |field|
+  # Overrides default collection_select method of FormBuilder
+  def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+    div_col_md_9 do
+      super(method, collection, value_method, text_method, options,
+            html_options.merge(class: 'form-control'))
+    end
+  end
+
+  %w(text_field select collection_select).each do |field|
     define_method "#{field}_group" do |method, *args, &block|
       div_form_group do
         label(method) + send(field, method, *args, &block)

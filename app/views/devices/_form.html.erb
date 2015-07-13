@@ -2,11 +2,12 @@
 <%= form_for device do |f| %>
   <%= header_section 'details' %>
 	<%= f.text_field_group :name, disabled: disabled %>
-	<%= f.select_group :category, options_from_collection_for_select(DeviceCategory.all, :id, :name) %>
+  <%= f.select_group :category, options_from_collection_for_select(DeviceCategory.all, :id, :name) %>
 
   <% if edit? %>
     <%= avatar_for(device, f) %>
     <%= properties_for(device, f) %>
-    <%= submit(f) %>
   <% end %>
+
+  <%= submit(f) %>
 <% end %>
