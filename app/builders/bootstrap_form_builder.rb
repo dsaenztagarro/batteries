@@ -3,6 +3,7 @@
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   alias :label_orig :label
   alias :submit_orig :submit
+  alias :text_field_orig :text_field
 
   # Overrides default label method of FormBuilder
   def label(method, options = {})
@@ -11,8 +12,10 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
   # Overrides default text_field method of FormBuilder
   def text_field(method, options = {})
+    error_class = object.errors.key?(method) ? 'parsley-error' : ''
+    options = options.merge(class: "form-control #{error_class}")
     div_col_md_9 do
-      super(method, options.merge(class: 'form-control'))
+      text_field_orig(method, options) + error_details(method)
     end
   end
 
@@ -56,6 +59,12 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
         options[:data] = data_options.merge(disable_with: 'Please wait..')
 				submit_orig(value, options)
       end
+    end
+  end
+
+  def error_details(method)
+    if object.errors.key? method
+      @template.render '/shared/error_field', errors: object.errors[method]
     end
   end
 

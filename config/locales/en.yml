@@ -22,6 +22,7 @@
 en:
   action:
     new: "New"
+    create: "New"
     edit: "Edit"
     show: "Show"
 
