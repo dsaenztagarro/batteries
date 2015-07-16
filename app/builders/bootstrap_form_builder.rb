@@ -4,34 +4,35 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   alias :label_orig :label
   alias :submit_orig :submit
   alias :text_field_orig :text_field
+  alias :select_orig :select
 
   # Overrides default label method of FormBuilder
   def label(method, options = {})
-    super(method, options.merge(class: 'col-md-3'))
+    label_orig(method, options.merge(class: 'col-md-3'))
   end
 
   # Overrides default text_field method of FormBuilder
-  def text_field(method, options = {})
-    error_class = object.errors.key?(method) ? 'parsley-error' : ''
-    options = options.merge(class: "form-control #{error_class}")
+  def text_field(method, options_orig = {})
+    options = decorate(method, options_orig)
     div_col_md_9 do
       text_field_orig(method, options) + error_details(method)
     end
   end
 
   # Overrides default select method of FormBuilder
-  def select(method, choices = nil, options = {}, html_options = {}, &block)
-    html_options.merge!(class: 'form-control')
+  def select(method, choices = nil, options_orig = {}, html_options_orig = {}, &block)
+    options = options_orig.merge(include_blank: true)
+    html_options = decorate(method, html_options_orig)
     div_col_md_9 do
-      super(method, choices, options, html_options, &block)
+      select_orig(method, choices, options, html_options, &block)
     end
   end
 
   # Overrides default collection_select method of FormBuilder
-  def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+  def collection_select(method, collection, value_method, text_method, options = {}, html_options_orig = {})
+    html_options = decorate(method, html_options_orig)
     div_col_md_9 do
-      super(method, collection, value_method, text_method, options,
-            html_options.merge(class: 'form-control'))
+      super(method, collection, value_method, text_method, options, html_options)
     end
   end
 
@@ -66,6 +67,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     if object.errors.key? method
       @template.render '/shared/error_field', errors: object.errors[method]
     end
+  end
+
+  def decorate(method, options)
+    error_class = object.errors.key?(method) ? 'parsley-error' : ''
+    options.merge(class: "form-control #{error_class}")
   end
 
   private
