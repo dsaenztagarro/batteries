@@ -1,8 +1,9 @@
 # Devices present at home
 class Device < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: true
+  belongs_to :category, class_name: 'DeviceCategory'
 
-  belongs_to :category, class_name: 'DeviceCategory', validate: true
+  validates :name, presence: true, uniqueness: true
+  validates :device_category_id, presence: true
 
   has_many :properties, :as => :attributable, :dependent => :destroy
 

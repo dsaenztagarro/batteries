@@ -13,10 +13,10 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
   # Overrides default text_field method of FormBuilder
   def text_field_control(method, orig_options = {})
-    debugger
     options = decorate_html(method, orig_options)
     div_col_md_9 do
-      orig_text_field(method, options) + error_details(method)
+      orig_text_field(method, options) +
+        error_details(method)
     end
   end
 
@@ -36,7 +36,8 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     options = orig_options.merge(include_blank: true)
     html_options = decorate_html(method, orig_html_options)
     div_col_md_9 do
-      orig_collection_select(method, collection, value_method, text_method, options, html_options)
+      orig_collection_select(method, collection, value_method, text_method, options, html_options) +
+        error_details(method)
     end
   end
 
