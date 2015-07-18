@@ -1,42 +1,42 @@
 # This class extends default form builder to adapt to Bootstrap theme
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
-  alias_method :label_orig, :label
-  alias_method :submit_orig, :submit
-  alias_method :text_field_orig, :text_field
-  alias_method :select_orig, :select
-  alias_method :collection_select_orig, :collection_select
+  alias_method :orig_label, :label
+  alias_method :orig_submit, :submit
+  alias_method :orig_text_field, :text_field
+  alias_method :orig_select, :select
+  alias_method :orig_collection_select, :collection_select
 
   # Overrides default label method of FormBuilder
   def label_control(method, options = {})
-    label_orig(method, options.merge(class: 'col-md-3'))
+    orig_label(method, options.merge(class: 'col-md-3'))
   end
 
   # Overrides default text_field method of FormBuilder
-  def text_field_control(method, options_orig = {})
+  def text_field_control(method, orig_options = {})
     debugger
-    options = decorate(method, options_orig)
+    options = decorate_html(method, orig_options)
     div_col_md_9 do
-      text_field_orig(method, options) + error_details(method)
+      orig_text_field(method, options) + error_details(method)
     end
   end
 
   # Overrides default select method of FormBuilder
-  def select_control(method, choices = nil, options_orig = {}, html_options_orig = {}, &block)
-    options = options_orig.merge(include_blank: true)
-    html_options = decorate(method, html_options_orig)
+  def select_control(method, choices = nil, options_orig = {}, orig_html_options = {}, &block)
+    options = orig_options.merge(include_blank: true)
+    html_options = decorate_html(method, orig_html_options)
     div_col_md_9 do
-      select_orig(method, choices, options, html_options, &block) +
+      orig_select(method, choices, options, html_options, &block) +
         error_details(method)
     end
   end
 
   # Overrides default collection_select method of FormBuilder
   def collection_select_control(method, collection, value_method, text_method,
-                                options_orig = {}, html_options_orig = {})
-    options = options_orig.merge(include_blank: true)
-    html_options = decorate(method, html_options_orig)
+                                orig_options = {}, orig_html_options = {})
+    options = orig_options.merge(include_blank: true)
+    html_options = decorate_html(method, orig_html_options)
     div_col_md_9 do
-      collection_select_orig(method, collection, value_method, text_method, options, html_options)
+      orig_collection_select(method, collection, value_method, text_method, options, html_options)
     end
   end
 
@@ -62,7 +62,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
         # Disable button when the form is submitted
         data_options = options[:data] || {}
         options[:data] = data_options.merge(disable_with: 'Please wait..')
-				submit_orig(value, options)
+			  orig_submit(value, options)
       end
     end
   end
@@ -73,9 +73,10 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def decorate(method, options)
+  def decorate_html(method, options)
+    disabled = self.options[:disabled]
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
-    options.merge(class: "form-control #{error_class}")
+    options.merge(class: "form-control #{error_class}", disabled: disabled)
   end
 
   private
