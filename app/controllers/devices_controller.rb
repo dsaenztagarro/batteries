@@ -6,7 +6,7 @@ class DevicesController < SimpleCrud::BaseController
 
   def device_params
     params.require(:device)
-      .permit(:avatar, :device_filter_list, :name,
+      .permit(:avatar, :device_category_id, :device_filter_list, :name,
               properties_attributes: [:_destroy, :id, :value])
   end
 end
