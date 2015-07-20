@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batteries</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade">
+      <!-- begin login -->
+      <div class="login bg-black animated fadeInDown">
+        <!-- begin brand -->
+        <div class="login-header">
+          <div class="brand">
+            <span class="logo"></span> Color Admin
+            <small>responsive bootstrap 3 admin template</small>
+          </div>
+          <div class="icon">
+            <i class="fa fa-sign-in"></i>
+          </div>
+        </div>
+        <!-- end brand -->
+        <div class="login-content">
+          <% if flash[:notice] %>
+            <div class="alert alert-success fade in m-b-15"><%= flash[:notice] %></div>
+          <% end %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag 'init' %>
+  </body>
+</html>
