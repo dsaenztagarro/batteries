@@ -76,6 +76,8 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  private
+
   def error_details(method)
     if object.errors.key? method
       @template.render '/shared/error_field', errors: object.errors[method]
@@ -87,8 +89,6 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
     options.merge(class: "form-control #{error_class}", disabled: disabled)
   end
-
-  private
 
   def div_form_group(&block)
     @template.content_tag :div, class: 'form-group', &block
