@@ -1,22 +1,30 @@
 # This class extends default form builder to adapt to Bootstrap theme
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
-  alias_method :orig_label, :label
-  alias_method :orig_submit, :submit
-  alias_method :orig_text_field, :text_field
-  alias_method :orig_select, :select
-  alias_method :orig_collection_select, :collection_select
+  %w(text_field password_field email_field select collection_select label
+     submit).each do |field|
+    alias_method "orig_#{field}".to_s, field.to_s
+  end
 
   # Overrides default label method of FormBuilder
   def label_control(method, options = {})
     orig_label(method, options.merge(class: 'col-md-3'))
   end
 
-  # Overrides default text_field method of FormBuilder
   def text_field_control(method, orig_options = {})
     options = decorate_html(method, orig_options)
     div_col_md_9 do
       orig_text_field(method, options) +
         error_details(method)
+    end
+  end
+
+  # Overrides default text_field method of FormBuilder
+  %w(text_field email_field password_field).each do |field|
+    define_method "#{field}_control" do |method, orig_options = {}|
+      options = decorate_html(method, orig_options)
+      div_col_md_9 do
+        send("orig_#{field}", method, options) + error_details(method)
+      end
     end
   end
 
