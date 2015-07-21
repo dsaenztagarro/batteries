@@ -4,12 +4,13 @@
 
   <% if devise_mapping.rememberable? -%>
     <div class="checkbox m-b-20">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<label>
+                            <input type="checkbox"> Remember Me
+                        </label>
     </div>
   <% end -%>
 
-  <%= f.submit "Log in" %>
+  <%= f.submit t('signin') %>
 <% end %>
 
 <%= render "devise/shared/links" %>

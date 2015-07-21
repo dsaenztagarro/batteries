@@ -25,14 +25,15 @@ module FormHelper
   def form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:html] = {} unless options.key? :html
-    options[:html].merge!(class: 'form-horizontal')
+		options[:html].merge!(class: 'form-horizontal') unless options[:html].key? :class
     super(record, *(args << options), &block)
   end
 
   def auth_form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:builder] = AuthFormBuilder
-		options[:class] = 'margin-bottom-0'
+    options[:html] = {} unless options.key? :html
+    options[:html].merge!(class: 'margin-bottom-0')
     form_for(record, *(args << options), &block)
   end
 

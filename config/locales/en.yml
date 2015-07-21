@@ -25,6 +25,7 @@ en:
   new: "New"
   password: "Password"
   show: "Show"
+  signin: "Sign me in"
 
   activerecord:
     properties:
