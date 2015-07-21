@@ -1,4 +1,4 @@
-/*   
+/*
 Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 1.4.0
 Author: Sean Ngu
@@ -6,10 +6,10 @@ Website: http://www.seantheme.com/color-admin-v1.4/
     ----------------------------
         APPS CONTENT TABLE
     ----------------------------
-    
+
     <!-- ======== GLOBAL SCRIPT SETTING ======== -->
     01. Handle Scrollbar
-    
+
     02. Handle Sidebar - Menu
     03. Handle Sidebar - Mobile View Toggle
     04. Handle Sidebar - Minify / Expand
@@ -18,11 +18,11 @@ Website: http://www.seantheme.com/color-admin-v1.4/
     07. Handle Panel - Draggable
     08. Handle Tooltip & Popover Activation
     09. Handle Scroll to Top Button Activation
-    
+
     <!-- ======== Added in V1.2 ======== -->
     10. Handle Theme & Page Structure Configuration
     11. Handle Theme Panel Expand
-	
+
     <!-- ======== APPLICATION SETTING ======== -->
     Application Controller
 */
@@ -40,9 +40,9 @@ var handleSlimScroll = function() {
 var generateSlimScroll = function(element) {
     var dataHeight = $(element).attr('data-height');
         dataHeight = (!dataHeight) ? $(element).height() : dataHeight;
-    
+
     var scrollBarOption = {
-        height: dataHeight, 
+        height: dataHeight,
         alwaysVisible: true
     };
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -60,7 +60,7 @@ var handleSidebarMenu = function() {
     $('.sidebar .nav > .has-sub > a').click(function() {
         var target = $(this).next('.sub-menu');
         var otherMenu = '.sidebar .nav > li.has-sub > .sub-menu';
-    
+
     if ($('.page-sidebar-minified').length === 0) {
         $(otherMenu).not(target).slideUp(250);
         $(target).slideToggle(250);
@@ -172,7 +172,7 @@ var handlePageContentView = function() {
 ------------------------------------------------ */
 var handlePanelAction = function() {
     "use strict";
-    
+
     // remove
     $('[data-click=panel-remove]').hover(function() {
         $(this).tooltip({
@@ -188,7 +188,7 @@ var handlePanelAction = function() {
         $(this).tooltip('destroy');
         $(this).closest('.panel').remove();
     });
-    
+
     // collapse
     $('[data-click=panel-collapse]').hover(function() {
         $(this).tooltip({
@@ -203,7 +203,7 @@ var handlePanelAction = function() {
         e.preventDefault();
         $(this).closest('.panel').find('.panel-body').slideToggle();
     });
-    
+
     // reload
     $('[data-click=panel-reload]').hover(function() {
         $(this).tooltip({
@@ -228,7 +228,7 @@ var handlePanelAction = function() {
             }, 2000);
         }
     });
-    
+
     // expand
     $('[data-click=panel-expand]').hover(function() {
         $(this).tooltip({
@@ -242,7 +242,7 @@ var handlePanelAction = function() {
     $('[data-click=panel-expand]').click(function(e) {
         e.preventDefault();
         var target = $(this).closest('.panel');
-    
+
         if ($('body').hasClass('panel-expand') && $(target).hasClass('panel-expand')) {
             $('body, .panel').removeClass('panel-expand');
             $('.panel').removeAttr('style');
@@ -264,7 +264,7 @@ var handleDraggablePanel = function() {
   var target = '[class*=col]';
   var targetHandle = '.panel-heading';
   var connectedTarget = '.row > [class*=col]';
-  
+
   $(target).sortable({
     handle: targetHandle,
     connectWith: connectedTarget
@@ -287,14 +287,14 @@ var handleScrollToTopButton = function() {
   "use strict";
   $(document).scroll( function() {
     var totalScroll = $(document).scrollTop();
-    
+
     if (totalScroll >= 200) {
       $('[data-click=scroll-top]').addClass('in');
     } else {
       $('[data-click=scroll-top]').removeClass('in');
     }
   });
-  
+
   $('[data-click=scroll-top]').click(function(e) {
     e.preventDefault();
     $('html, body').animate({
@@ -316,7 +316,7 @@ var handleThemePageStructureControl = function() {
         var cssFileSrc = 'assets/css/theme/' + $.cookie('theme') + '.css';
         $('#theme').attr('href', cssFileSrc);
     }
-    
+
     // COOKIE - Sidebar Styling Setting
     if ($.cookie && $.cookie('sidebar-styling')) {
         if ($('.sidebar').length !== 0 && $.cookie('sidebar-styling') == 'grid') {
@@ -324,7 +324,7 @@ var handleThemePageStructureControl = function() {
             $('[name=sidebar-styling] option[value="2"]').prop('selected', true);
         }
     }
-    
+
     // COOKIE - Header Setting
     if ($.cookie && $.cookie('header-styling')) {
         if ($('.header').length !== 0 && $.cookie('header-styling') == 'navbar-inverse') {
@@ -332,7 +332,7 @@ var handleThemePageStructureControl = function() {
             $('[name=header-styling] option[value="2"]').prop('selected', true);
         }
     }
-    
+
     // THEME - theme selection
     $('.theme-list [data-theme]').live('click', function() {
         var cssFileSrc = 'assets/css/theme/' + $(this).attr('data-theme') + '.css';
@@ -341,7 +341,7 @@ var handleThemePageStructureControl = function() {
         $(this).closest('li').addClass('active');
         $.cookie('theme', $(this).attr('data-theme'));
     });
-    
+
     // HEADER - inverse or default
     $('.theme-panel [name=header-styling]').live('change', function() {
         var targetClassAdd = ($(this).val() == 1) ? 'navbar-default' : 'navbar-inverse';
@@ -349,7 +349,7 @@ var handleThemePageStructureControl = function() {
         $('#header').removeClass(targetClassRemove).addClass(targetClassAdd);
         $.cookie('header-styling',targetClassAdd);
     });
-    
+
     // SIDEBAR - grid or default
     $('.theme-panel [name=sidebar-styling]').live('change', function() {
         if ($(this).val() == 2) {
@@ -360,7 +360,7 @@ var handleThemePageStructureControl = function() {
             $.cookie('sidebar-styling', 'default');
         }
     });
-    
+
     // SIDEBAR - fixed or default
     $('.theme-panel [name=sidebar-fixed]').live('change', function() {
         if ($(this).val() == 1) {
@@ -398,7 +398,7 @@ var handleThemePageStructureControl = function() {
             }
         }
     });
-    
+
     // HEADER - fixed or default
     $('.theme-panel [name=header-fixed]').live('change', function() {
         if ($(this).val() == 1) {
@@ -455,25 +455,27 @@ var handleAfterPageLoadAddClass = function() {
 ------------------------------------------------ */
 var App = function () {
 	"use strict";
-	
+
 	return {
 		//main function
 		init: function () {
-		
+      // unobtrusive adapter
+      handleUnobtrusivePageContentView();
+
 			// slimscroll
 			handleSlimScroll();
-			
+
 			// sidebar
 			handleSidebarMenu();
 			handleMobileSidebarToggle();
 			handleSidebarMinify();
-			
+
 			// theme configuration
 			handleThemePageStructureControl();
 			handleThemePanelExpand();
-			
+
 			handleAfterPageLoadAddClass();
-			
+
 			handlePanelAction();
 			handleDraggablePanel();
 			handelTooltipPopoverActivation();

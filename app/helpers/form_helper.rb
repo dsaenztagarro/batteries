@@ -29,6 +29,12 @@ module FormHelper
     super(record, *(args << options), &block)
   end
 
+  def auth_form_for(record, *args, &block)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    options[:builder] = AuthFormBuilder
+    form_for(record, *(args << options), &block)
+  end
+
   [:form_for, :fields_for, :form_remote_for, :remote_form_for].each do |method|
     define_method "disabled_#{method}".to_s do |object_name, *args, &proc|
       options = args.last.is_a?(Hash) ? args.pop : {}
