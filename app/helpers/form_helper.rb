@@ -14,7 +14,7 @@ module FormHelper
   end
 
   def panel_action_for(object, &block)
-    action = t("action.#{params[:action]}")
+    action = t(key_for(params[:action]))
     model = t("model.#{object.class.to_s.downcase}")
     title = "#{action} #{model}"
     panel_for(title, &block)
@@ -32,6 +32,7 @@ module FormHelper
   def auth_form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:builder] = AuthFormBuilder
+		options[:class] = 'margin-bottom-0'
     form_for(record, *(args << options), &block)
   end
 
@@ -55,4 +56,12 @@ module FormHelper
   def submit(builder)
     builder.submit unless show?
   end
+
+	private
+
+	def key_for(action)
+		return :new if create?
+		return :edit if update?
+		action
+	end
 end

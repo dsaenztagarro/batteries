@@ -20,12 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  action:
-    new: "New"
-    create: "New"
-    edit: "Edit"
-    update: "Edit"
-    show: "Show"
+  edit: "Edit"
+  email: "Email Address"
+  new: "New"
+  password: "Password"
+  show: "Show"
 
   activerecord:
     properties:
