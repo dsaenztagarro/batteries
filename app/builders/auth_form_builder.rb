@@ -1,17 +1,20 @@
 class AuthFormBuilder < ActionView::Helpers::FormBuilder
-	alias_method :orig_submit, :submit
+	%w(email_field password_field check_box submit).each do |field|
+  	alias_method "orig_#{field}".to_s, field.to_s
+	end
 
-	INPUT_FIELDS = %w(email_field password_field)
-
-  INPUT_FIELDS.each { |field| alias_method "orig_#{field}".to_s, field.to_s }
-
-	INPUT_FIELDS.each do |field|
-		define_method field do |method, orig_options = {}|
+	%w(email_field password_field).each do |field|
+		define_method field.to_s do |method, orig_options = {}|
 			options = decorate_html(method, orig_options)
 			div_control do
-				orig_email_field(method, options) +
-					error_details(method)
+				orig_email_field(method, options) + error_details(method)
 			end
+		end
+	end
+
+	def check_box(method, options = {})
+		@template.content_tag :div, class: 'checkbox m-b-20' do
+			('<label>' + orig_check_box(method) + '</label>').html_safe
 		end
 	end
 

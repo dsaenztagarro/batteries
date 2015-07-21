@@ -24,6 +24,7 @@ en:
   email: "Email Address"
   new: "New"
   password: "Password"
+  remember_me: "Remember me"
   show: "Show"
   signin: "Sign me in"
 
@@ -31,6 +32,7 @@ en:
     properties:
       device:
         name: "Name"
+        remember_me: "Remember me"
       property_type:
         name: "Name"
 
