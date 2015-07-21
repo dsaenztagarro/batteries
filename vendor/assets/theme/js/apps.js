@@ -459,9 +459,6 @@ var App = function () {
 	return {
 		//main function
 		init: function () {
-      // unobtrusive adapter
-      handleUnobtrusivePageContentView();
-
 			// slimscroll
 			handleSlimScroll();
 

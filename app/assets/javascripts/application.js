@@ -35,5 +35,4 @@
 // END PAGE LEVEL JS
 //
 //= require device
-
-debugger
+//= require custom

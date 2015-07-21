@@ -2,7 +2,6 @@ class PropertiesController < ApplicationController
   respond_to :html, :js, :json
 
   def create
-    debugger
     @attributable = find_attributable
     @property = @attributable.properties.build(property_params)
 
