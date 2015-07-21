@@ -1,5 +1,5 @@
-<% active_show = params[:action] == 'show' ? 'active' : '' %>
-<% active_edit = params[:action] == 'edit' ? 'active' : '' %>
+<% active_show = show? ? 'active' : '' %>
+<% active_edit = edit? ? 'active' : '' %>
 
 <div class='btn-group'>
   <a href='<%= devices_path %>' class='btn btn-white'><%= t('button.back') %></a>

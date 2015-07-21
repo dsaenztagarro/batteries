@@ -14,11 +14,9 @@ module PropertiesHelper
     render '/shared/tags', model: model, f: builder
   end
 
-  def show?
-    params[:action] == 'show'
-  end
-
-  def edit?
-    params[:action] == 'edit'
+  %w(show edit).each do |action|
+    define_method "#{action}?" do
+      params[:action] == 'show'
+    end
   end
 end
