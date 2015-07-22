@@ -19,4 +19,6 @@
  *= require css/style.css
  *= require css/style-responsive.min.css
  *= require css/theme/default.css
+ *
+ *= require plugins/gritter/css/jquery.gritter.css
  */
