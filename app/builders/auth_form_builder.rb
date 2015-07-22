@@ -14,7 +14,7 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
 
 	def check_box(method, options = {})
 		@template.content_tag :div, class: 'checkbox m-b-20' do
-			('<label>' + orig_check_box(method) + '</label>').html_safe
+			('<label>' + orig_check_box(method) + I18n.t(method) + '</label>').html_safe
 		end
 	end
 
