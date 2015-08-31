@@ -27,7 +27,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'simplecrud', path: '~/Projects/gems/simplecrud'
+gem 'simplecrud', path: '~/Projects/simplecrud'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,13 +41,17 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.3'
 end
 
-group :development, :test do
-  gem 'byebug'
-  gem 'cane'
+group :test do
   gem 'capybara'
   gem 'cucumber'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'rspec'
+end
+
+group :development, :test do
+  gem 'byebug'
+  gem 'cane'
   gem 'reek'
   gem 'rubocop'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
