@@ -38,6 +38,7 @@ gem 'simplecrud'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rvm', '~> 0.1.1'
   gem 'capistrano-rails', '~> 1.1.3'
   gem 'capistrano-passenger'
 end
