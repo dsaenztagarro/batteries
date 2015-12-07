@@ -9,7 +9,7 @@ default: &default
   database: batteries_development
   username: developer
   password: developer
-  host: localhost
+  host: 127.0.0.1
 
 development:
   <<: *default
