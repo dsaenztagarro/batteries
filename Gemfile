@@ -1,17 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.5'
 
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'pg'
+gem 'pg', '~> 0.18.4'
 gem 'paperclip', '~> 4.3'
 gem 'responders', '~> 2.0'
 gem 'searchkick'
 gem 'sqlite3'
 gem 'turbolinks'
-gem 'virtus'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -38,9 +37,9 @@ gem 'simplecrud'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rvm', '~> 0.1.1'
-  gem 'capistrano-rails', '~> 1.1.3'
-  gem 'capistrano-passenger'
+  gem 'capistrano-rvm', '0.1.1'
+  gem 'capistrano-rails', '1.1.5'
+  gem 'capistrano-passenger', '0.1.1'
 end
 
 group :test do
