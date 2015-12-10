@@ -9,7 +9,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(
-  email:                 'testuser@xxxxx.xxx',
+  email:                 'development@myfamilyweb.es',
   password:              '12345678',
   password_confirmation: '12345678'
 )
