@@ -24,14 +24,15 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
+  #
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
-  # session. If you need permissions, you should implement that in a before filter.
-  # You can also supply a hash where the value is a boolean determining whether
-  # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  # session. If you need permissions, you should implement that in a before
+  # filter.  You can also supply a hash where the value is a boolean
+  # determining whether or not authentication should be aborted when the value
+  # is not present.  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -56,12 +57,13 @@ Devise.setup do |config|
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
-  # Tell if authentication through HTTP Auth is enabled. False by default.
-  # It can be set to an array that will enable http authentication only for the
-  # given strategies, for example, `config.http_authenticatable = [:database]` will
-  # enable it only for database authentication. The supported strategies are:
-  # :database      = Support basic authentication with authentication key + password
-  # config.http_authenticatable = false
+  # Tell if authentication through HTTP Auth is enabled. False by default.  It
+  # can be set to an array that will enable http authentication only for the
+  # given strategies, for example, `config.http_authenticatable = [:database]`
+  # will enable it only for database authentication. The supported strategies
+  # are:
+  # :database      = Support basic authentication with authentication key
+  # + password config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -193,25 +195,24 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
-  # When set to false, does not sign a user in automatically after their password is
-  # reset. Defaults to true, so a user is signed in automatically after a reset.
-  # config.sign_in_after_reset_password = true
+  # When set to false, does not sign a user in automatically after their
+  # password is reset. Defaults to true, so a user is signed in automatically
+  # after a reset.  config.sign_in_after_reset_password = true
 
-  # ==> Configuration for :encryptable
-  # Allow you to use another encryption algorithm besides bcrypt (default). You can use
-  # :sha1, :sha512 or encryptors from others authentication tools as :clearance_sha1,
-  # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
-  # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
-  # REST_AUTH_SITE_KEY to pepper).
+  # ==> Configuration for :encryptable Allow you to use another encryption
+  # algorithm besides bcrypt (default). You can use :sha1, :sha512 or
+  # encryptors from others authentication tools as :clearance_sha1,
+  # :authlogic_sha512 (then you should set stretches above to 20 for default
+  # behavior) and :restful_authentication_sha1 (then you should set stretches
+  # to 10, and copy REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
-  # are using only default views.
-  # config.scoped_views = false
+  # Turn scoped views on. Before rendering "sessions/new", it will first check
+  # for "users/sessions/new". It's turned off by default because it's slower if
+  # you are using only default views.  config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

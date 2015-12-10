@@ -13,3 +13,8 @@ User.create!(
   password:              '12345678',
   password_confirmation: '12345678'
 )
+
+BatterPackType.create!(
+  name: 'AmazonBasics AA (Pack 16)',
+  description: 'AA NiMH Precharged Rechargeable Batteries (16 Pack, 2000 mAh)',
+  size: 16)
