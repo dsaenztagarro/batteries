@@ -3,7 +3,7 @@ class DeviceForm
   include Virtus.model
 
   attribute :name, String, default: ''
-  attribute :properties, Array[D
+  attribute :properties, Array
 
   def initialize(device)
     @device = device
