@@ -30,5 +30,9 @@ module Family
 
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('/app/validators')
+
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helpers = false
   end
 end

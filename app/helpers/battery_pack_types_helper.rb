@@ -1,0 +1,2 @@
+module BatteryPackTypesHelper
+end
