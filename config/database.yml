@@ -5,10 +5,10 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql
-  database: batteries_development
-  username: developer
-  password: developer
+  adapter: postgresql
+  database: myfamilyweb_development
+  username: development
+  password: development
   host: 127.0.0.1
 
 development:
@@ -19,8 +19,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: batteries_test
-
-production:
-  <<: *default
-  database: batteries_production
+  database: myfamilyweb_test
+  username: test
+  password: test
