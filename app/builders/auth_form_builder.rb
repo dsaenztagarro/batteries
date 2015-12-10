@@ -6,19 +6,19 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
   %w(email_field password_field).each do |field|
     define_method field.to_s do |method, orig_options = {}|
       options = decorate_html(method, orig_options)
-    div_control do
-      send("orig_#{field}", method, options) + error_details(method)
-    end
+      div_control do
+        send("orig_#{field}", method, options) + error_details(method)
+      end
     end
   end
 
-  def check_box(method, options = {})
+  def check_box(method, _options = {})
     @template.content_tag :div, class: 'checkbox m-b-20' do
       ('<label>' + orig_check_box(method) + I18n.t(method) + '</label>').html_safe
     end
   end
 
-  def submit(value=nil, options={})
+  def submit(value = nil, options = {})
     @template.content_tag :div, class: 'login-buttons' do
       options.merge!(class: 'btn btn-success btn-block btn-lg')
       # Disable button when the form is submitted
@@ -38,8 +38,8 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
 
   def decorate_html(method, options)
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
-    options.merge(class: "form-control input-lg #{error_class}").
-      merge(placeholder: I18n.t(method))
+    options.merge(class: "form-control input-lg #{error_class}")
+      .merge(placeholder: I18n.t(method))
   end
 
   def div_control(&block)

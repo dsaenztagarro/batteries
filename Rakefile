@@ -6,5 +6,5 @@ require File.expand_path('../config/application', __FILE__)
 Rails.application.load_tasks
 
 namespace :db do
-  task :go => [:drop, :create, :migrate]
+  task go: [:drop, :create, :migrate]
 end

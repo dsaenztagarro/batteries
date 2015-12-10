@@ -1,7 +1,14 @@
 # This class extends default form builder to adapt to Bootstrap theme
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
-  %w(text_field password_field email_field select collection_select label
-     submit).each do |field|
+  %w(
+    collection_select
+    email_field
+    label
+    password_field
+    select
+    submit
+    text_field
+  ).each do |field|
     alias_method "orig_#{field}".to_s, field.to_s
   end
 
@@ -19,7 +26,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   # Overrides default text_field method of FormBuilder
-  %w(text_field email_field password_field).each do |field|
+  %w(
+    email_field
+    password_field
+    text_field
+  ).each do |field|
     define_method "#{field}_control" do |method, orig_options = {}|
       options = decorate_html(method, orig_options)
       div_col_md_9 do
@@ -29,7 +40,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   # Overrides default select method of FormBuilder
-  def select_control(method, choices = nil, options_orig = {}, orig_html_options = {}, &block)
+  def select_control(method, choices = nil, _options_orig = {}, orig_html_options = {}, &block)
     options = orig_options.merge(include_blank: true)
     html_options = decorate_html(method, orig_html_options)
     div_col_md_9 do
@@ -57,21 +68,21 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def input_group_for(text, &block)
+  def input_group_for(text, &_block)
     @template.content_tag :h4, class: 'm-t-20' do
       text
     end
   end
 
   # Overrides default submit method of FormBuilder
-  def submit(value=nil, options={})
+  def submit(value = nil, options = {})
     div_form_group do
       div_col_md_9 do
         options.merge!(class: 'btn btn-sm btn-success')
         # Disable button when the form is submitted
         data_options = options[:data] || {}
         options[:data] = data_options.merge(disable_with: 'Please wait..')
-			  orig_submit(value, options)
+        orig_submit(value, options)
       end
     end
   end

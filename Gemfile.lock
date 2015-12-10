@@ -82,6 +82,7 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     codeclimate-engine-rb (0.1.0)
       virtus (~> 1.0)
+    coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
@@ -151,6 +152,7 @@ GEM
       mime-types (>= 1.16, < 3)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
+    method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
@@ -177,6 +179,13 @@ GEM
     powerpack (0.1.1)
     private_attr (1.1.0)
     procto (0.0.2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -251,6 +260,7 @@ GEM
       elasticsearch (>= 1)
       hashie
     simplecrud (0.1.0)
+    slop (3.6.0)
     spring (1.5.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -317,6 +327,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.3)
   pg (~> 0.18.4)
+  pry-byebug
   rails (= 4.2.5)
   reek
   responders (~> 2.0)

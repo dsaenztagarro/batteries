@@ -13,8 +13,8 @@ module MessageHelper
 
   def level_for(key)
     case key.to_sym
-    when :notice then :success;
-    when :alert then :danger;
+    when :notice then :success
+    when :alert then :danger
     else key
     end
   end

@@ -4,7 +4,7 @@ lock '3.4.0'
 set :application, 'myfamilyweb'
 set :repo_url, 'https://github.com/dsaenztagarro/myfamilyweb.git'
 
-set :stages, ['vagrant', 'production']
+set :stages, %w(vagrant production)
 set :default_stage, 'vagrant'
 
 # Default branch is :master
@@ -56,7 +56,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # ))
 
 namespace :deploy do
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -65,5 +64,4 @@ namespace :deploy do
       # end
     end
   end
-
 end

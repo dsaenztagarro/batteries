@@ -5,17 +5,17 @@ class PropertiesController < ApplicationController
     @attributable = find_attributable
     @property = @attributable.properties.build(property_params)
 
-		respond_to do |format|
-			if @property.save
-      	flash[:notice] = 'Successfully created property'
-				format.html { redirect_to(@attributable) }
-				format.js {}
-			else
-      	flash[:error] = 'Error adding property.'
-				format.html { render :action => "new" }
-				format.json  { render :json => model.errors, :status => :unprocessable_entity }
-			end
-		end
+    respond_to do |format|
+      if @property.save
+        flash[:notice] = 'Successfully created property'
+        format.html { redirect_to(@attributable) }
+        format.js {}
+      else
+        flash[:error] = 'Error adding property.'
+        format.html { render action: 'new' }
+        format.json { render json: model.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
@@ -26,9 +26,7 @@ class PropertiesController < ApplicationController
 
   def find_attributable
     params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
-      end
+      return Regexp.last_match(1).classify.constantize.find(value) if name =~ /(.+)_id$/
     end
     nil
   end

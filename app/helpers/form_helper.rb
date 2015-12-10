@@ -1,5 +1,4 @@
 module FormHelper
-
   def crud_buttons(model)
     render 'shared/crud_buttons', model: model
   end
@@ -25,7 +24,7 @@ module FormHelper
   def form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:html] = {} unless options.key? :html
-		options[:html].merge!(class: 'form-horizontal') unless options[:html].key? :class
+    options[:html].merge!(class: 'form-horizontal') unless options[:html].key? :class
     super(record, *(args << options), &block)
   end
 
@@ -51,18 +50,19 @@ module FormHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + '_fields', f: builder)
     end
-    link_to(name, '#', class: 'btn btn-primary btn-sm m-r-5 add_fields', data: {id: id, fields: fields.gsub("\n", '')})
+    link_to(name, '#', class: 'btn btn-primary btn-sm m-r-5 add_fields', data: { id: id, fields: fields.delete("\n") })
   end
 
   def submit(builder)
     builder.submit unless show?
   end
 
-	private
+  private
 
-	def key_for(action)
-		return :new if create?
-		return :edit if update?
-		action
-	end
+  def key_for(action)
+    binding.pry
+    return :new if create?
+    return :edit if update?
+    action
+  end
 end
