@@ -1,3 +1,3 @@
-<%= panel_action_for @device do %>
-  <%= render partial: 'form', locals: {device: @device} %>
+<%= panel_for @device do %>
+  <%= render 'form', device: @device %>
 <% end %>

@@ -61,6 +61,12 @@ en:
     device_category: "Device category"
     property_type: "Device property type"
 
+  panel:
+    action:
+      new: New
+      create: New
+      update: Update
+
   inputgroup:
     properties: "Properties"
 

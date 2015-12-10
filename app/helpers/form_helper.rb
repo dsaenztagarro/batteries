@@ -3,20 +3,31 @@ module FormHelper
     render 'shared/crud_buttons', model: model
   end
 
-  def panel_for(title, &block)
-    render layout: '/shared/panel', locals: { title: title }, &block
+  # @param [String, ActiveRecord::Base]
+  # @yield The content of the panel
+  def panel_for(arg, &block)
+    if arg.is_a? ActiveRecord::Base
+      title = title_from_model(arg)
+    elsif arg.is_a? String
+      title = arg
+    else
+      fail 'Invalid panel arg'
+    end
+    render '/shared/panel', title: title, &block
+  end
+
+  # @param object [ActiveRecord::Base]
+  # @return [String] The title of the panel base on the object and the current
+  #   controller param action
+  def title_from_model(object)
+    action = t "panel.action.#{params[:action]}"
+    model = t "model.#{object.class.to_s.downcase}"
+    "#{action} #{model}"
   end
 
   def header_section(key)
     title = t("header.#{key}")
     render '/shared/header_section', title: title
-  end
-
-  def panel_action_for(object, &block)
-    action = t(key_for(params[:action]))
-    model = t("model.#{object.class.to_s.downcase}")
-    title = "#{action} #{model}"
-    panel_for(title, &block)
   end
 
   # Decorates super with bootstrap
@@ -55,14 +66,5 @@ module FormHelper
 
   def submit(builder)
     builder.submit unless show?
-  end
-
-  private
-
-  def key_for(action)
-    binding.pry
-    return :new if create?
-    return :edit if update?
-    action
   end
 end
