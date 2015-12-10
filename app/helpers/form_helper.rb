@@ -13,7 +13,7 @@ module FormHelper
     else
       fail 'Invalid panel arg'
     end
-    render '/shared/panel', title: title, &block
+    render layout: '/shared/panel', locals: { title: title }, &block
   end
 
   # @param object [ActiveRecord::Base]
