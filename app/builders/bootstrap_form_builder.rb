@@ -7,6 +7,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     password_field
     select
     submit
+    text_area
     text_field
   ).each do |field|
     alias_method "orig_#{field}".to_s, field.to_s
@@ -17,18 +18,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     orig_label(method, options.merge(class: 'col-md-3'))
   end
 
-  def text_field_control(method, orig_options = {})
-    options = decorate_html(method, orig_options)
-    div_col_md_9 do
-      orig_text_field(method, options) +
-        error_details(method)
-    end
-  end
-
   # Overrides default text_field method of FormBuilder
   %w(
     email_field
     password_field
+    text_area
     text_field
   ).each do |field|
     define_method "#{field}_control" do |method, orig_options = {}|
@@ -60,7 +54,12 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  %w(text_field select collection_select).each do |field|
+  %w(
+    collection_select
+    select
+    text_area
+    text_field
+    ).each do |field|
     define_method field do |method, *args, &block|
       div_form_group do
         label_control(method) + send("#{field}_control", method, *args, &block)
@@ -78,13 +77,26 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def submit(value = nil, options = {})
     div_form_group do
       div_col_md_9 do
-        options.merge!(class: 'btn btn-sm btn-success')
+        options.merge!(class: 'btn btn-success')
         # Disable button when the form is submitted
         data_options = options[:data] || {}
         options[:data] = data_options.merge(disable_with: 'Please wait..')
         orig_submit(value, options)
       end
     end
+  end
+
+  def div_form_group(&block)
+    @template.content_tag :div, class: 'form-group', &block
+  end
+
+  # Overrides default submit method of FormBuilder
+  def submit_test(value = nil, options = {})
+    options.merge!(class: 'btn btn-success')
+    # Disable button when the form is submitted
+    data_options = options[:data] || {}
+    options[:data] = data_options.merge(disable_with: 'Please wait..')
+    orig_submit(value, options)
   end
 
   private
@@ -99,10 +111,6 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     disabled = self.options[:disabled]
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
     options.merge(class: "form-control #{error_class}", disabled: disabled)
-  end
-
-  def div_form_group(&block)
-    @template.content_tag :div, class: 'form-group', &block
   end
 
   def div_col_md_9(&block)
