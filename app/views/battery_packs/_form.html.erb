@@ -1,0 +1,5 @@
+<% disabled ||= false %>
+<%= form_for(battery_pack, disabled: disabled)   do |f| %>
+  <%= f.collection_select :battery_pack_type_id, BatteryPackType.all, :id, :name %>
+  <%= submit(f) %>
+<% end %>

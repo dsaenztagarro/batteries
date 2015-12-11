@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= panel_for @battery_packs do %>
+      <% if @battery_packs.empty? %>
+        <%= alert_empty @battery_packs %>
+      <% else %>
+        <div class="table-responsive">
+          <table id="data-table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @battery_packs.each do |model| %>
+              <tr>
+                <td><%= model.id %></td>
+                <td><%= link_to model.battery_pack_type_name, battery_pack_path(model) %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+      <%= link_to 'New Battery pack', new_battery_pack_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
