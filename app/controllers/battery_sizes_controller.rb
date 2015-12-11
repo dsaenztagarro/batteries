@@ -62,13 +62,14 @@ class BatterySizesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_battery_size
-      @battery_size = BatterySize.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def battery_size_params
-      params[:battery_size]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_battery_size
+    @battery_size = BatterySize.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def battery_size_params
+    params[:battery_size]
+  end
 end
