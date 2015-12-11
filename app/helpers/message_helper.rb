@@ -15,8 +15,8 @@ module MessageHelper
   # @param object [ActiveRecord::Relation]
   # @return [String] The title of the panel base on the relation object
   def title_from_relation(object)
-    model = t "model.#{object.class.to_s.downcase.split('::').first}"
-    t 'panel.action.index', model: model
+    model_key = object.class.to_s.split('::').first.underscore.downcase
+    t 'panel.action.index', model: t("models.#{model_key}")
   end
 
   def show_flash

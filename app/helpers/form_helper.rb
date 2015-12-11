@@ -23,8 +23,8 @@ module FormHelper
   #   controller param action
   def title_from_model(object)
     action_key = "panel.action.#{params[:action]}"
-    model = t "model.#{object.class.to_s.downcase}"
-    t action_key, model: model
+    model_key = object.class.to_s.underscore.downcase
+    t action_key, model: t("models.#{model_key}")
   end
 
   # @param object [ActiveRecord::Relation]
