@@ -117,29 +117,12 @@
 		</div>
 		<!-- end #header -->
 
-		<!-- begin #sidebar -->
     <%= render 'layouts/menu' %>
-		<!-- end #sidebar -->
 
-		<!-- begin #content -->
 		<div id="content" class="content">
-			<!-- begin breadcrumb -->
-			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
-				<li><a href="javascript:;">Tables</a></li>
-				<li class="active">Basic Tables</li>
-			</ol>
-			<!-- end breadcrumb -->
-			<!-- begin page-header -->
-			<h1 class="page-header">Basic Tables <small>header small text goes here...</small></h1>
-			<!-- end page-header -->
-
 			<%= show_flash %>
-
       <%= yield %>
-
 		</div>
-		<!-- end #content -->
 
     <!-- ================== BEGIN BASE JS ================== -->
     <!--[if lt IE 9]>

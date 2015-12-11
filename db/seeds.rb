@@ -14,7 +14,14 @@ User.create!(
   password_confirmation: '12345678'
 )
 
-BatterPackType.create!(
+DeviceCategory.create!(name: 'Keyboard')
+
+BatteryPackType.create!(
   name: 'AmazonBasics AA (Pack 16)',
   description: 'AA NiMH Precharged Rechargeable Batteries (16 Pack, 2000 mAh)',
   size: 16)
+
+BatteryPackType.create!(
+  name: 'AmazonBasics AAA (Pack 12)',
+  description: 'AAA NiMH Precharged Rechargeable Batteries (12 Pack, 800 mAh)',
+  size: 12)

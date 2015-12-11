@@ -1,0 +1,2 @@
+module BatterySizesHelper
+end

@@ -50,6 +50,9 @@ en:
     details: "Details"
     properties: "Properties"
 
+  inputgroup:
+    properties: "Properties"
+
   message:
     property:
       list_empty: "The property list is empty"
@@ -63,12 +66,18 @@ en:
 
   panel:
     action:
-      new: New
       create: New
-      update: Update
+      new: New
+      show: Show
+      edit: Edit
+      update: Edit
 
-  inputgroup:
-    properties: "Properties"
+  action:
+    create: Create
+    new: Create
+    show: Show
+    edit: Update
+    update: Update
 
   submit:
     create: "Add %{model}"

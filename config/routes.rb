@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :batteries
+  resources :battery_sizes
+  resources :device_categories
+  resources :battery_pack_types
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +16,9 @@ Rails.application.routes.draw do
   concern :attributable do
     resources :properties
   end
+
+  resources :battery_packs
+  resources :battery_pack_types
 
   resources :devices, concerns: :attributable
   resources :device_categories
