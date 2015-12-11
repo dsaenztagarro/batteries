@@ -1,17 +1,7 @@
-<%= form_for(@battery_pack_type) do |f| %>
-  <% if @battery_pack_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@battery_pack_type.errors.count, "error") %> prohibited this battery_pack_type from being saved:</h2>
-
-      <ul>
-      <% @battery_pack_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% disabled ||= false %>
+<%= form_for(battery_pack_type, disabled: disabled)   do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_area :description %>
+	<%= f.text_field :size %>
+  <%= submit(f) %>
 <% end %>
