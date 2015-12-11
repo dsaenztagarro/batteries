@@ -63,20 +63,25 @@ en:
     device: "Device"
     device_category: "Device category"
     property_type: "Device property type"
+    batterypack: "Battery pack"
+    batterypacktype: "Battery pack type"
 
   panel:
     action:
-      create: New
-      new: New
-      show: Show
-      edit: Edit
-      update: Edit
+      create: "New %{model}"
+      edit: "Edit %{model}"
+      index: "%{model} list"
+      new: "New %{model}"
+      show: "Show %{model}"
+      update: "Edit %{model}"
+    empty: "%{model} is empty"
 
   action:
     create: Create
+    destroy: Delete
     new: Create
     show: Show
-    edit: Update
+    edit: Edit
     update: Update
 
   submit:
