@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Battery Sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @battery_sizes.each do |battery_size| %>
+      <tr>
+        <td><%= link_to 'Show', battery_size %></td>
+        <td><%= link_to 'Edit', edit_battery_size_path(battery_size) %></td>
+        <td><%= link_to 'Destroy', battery_size, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Battery size', new_battery_size_path %>
