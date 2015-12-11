@@ -1,3 +1,4 @@
 <%= panel_for @device do %>
   <%= render 'form', device: @device %>
+  <%= crud_buttons(@device) %>
 <% end %>

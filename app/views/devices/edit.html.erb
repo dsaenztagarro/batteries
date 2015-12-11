@@ -1,6 +1,6 @@
 <%= panel_for @device do %>
-  <%= crud_buttons(@device) %>
   <%= render 'form', device: @device %>
+  <%= crud_buttons(@device) %>
 <% end %>
 
 <%= panel_for 'New Property' do %>

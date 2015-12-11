@@ -1,6 +1,5 @@
 <% disabled ||= false %>
 <%= form_for(device, disabled: disabled)   do |f| %>
-  <%= header_section 'details' %>
 	<%= f.text_field :name %>
   <%= f.collection_select :device_category_id, DeviceCategory.all, :id, :name %>
 
