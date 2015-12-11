@@ -1,1 +1,9 @@
-<%= render partial: 'form', locals: {device_category: @device_category} %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device_category.name %>
+</p>
+
+<%= link_to 'Edit', edit_device_category_path(@device_category) %> |
+<%= link_to 'Back', device_categories_path %>

@@ -1,6 +1,21 @@
-<%= panel_for t('model.device_category') do %>
-  <%= form_for device_category do |f| %>
-    <%= f.text_field_group :name %><br />
-    <%= f.submit %>
+<%= form_for(@device_category) do |f| %>
+  <% if @device_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device_category.errors.count, "error") %> prohibited this device_category from being saved:</h2>
+
+      <ul>
+      <% @device_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
