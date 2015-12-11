@@ -1,23 +1,25 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Listing Batteries</h1>
 
 <table>
-  <tr>
-    <th>Battery Type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<% @batteries.each do |battery| %>
-  <tr>
-    <td><%= battery.battery_type_name %></td>
-    <td><%= link_to "Show", battery %></td>
-    <td><%= link_to "Edit", edit_battery_path(battery) %></td>
-    <td><%= link_to "Remove", battery, method: :delete, data: { confirm: "Are you sure?" } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @batteries.each do |battery| %>
+      <tr>
+        <td><%= link_to 'Show', battery %></td>
+        <td><%= link_to 'Edit', edit_battery_path(battery) %></td>
+        <td><%= link_to 'Destroy', battery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br>
 
-<%= link_to "New battery", new_battery_path %>
+<%= link_to 'New Battery', new_battery_path %>
