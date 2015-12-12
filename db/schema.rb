@@ -23,17 +23,18 @@ ActiveRecord::Schema.define(version: 20151211092605) do
   end
 
   create_table "battery_pack_types", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.integer  "size",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                        null: false
+    t.text     "description",                 null: false
+    t.integer  "size",                        null: false
+    t.boolean  "precharged",  default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "battery_packs", force: :cascade do |t|
-    t.integer  "battery_pack_types_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "battery_pack_type_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "battery_sizes", force: :cascade do |t|
