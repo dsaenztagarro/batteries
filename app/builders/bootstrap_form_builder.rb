@@ -24,7 +24,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     text_field
   ).each do |field|
     define_method "#{field}_control" do |method, orig_options = {}|
-      options = decorate_disable(decorate_errors(method, orig_options))
+      options = decorate_opts(method, orig_options)
       div_col_md_9 do
         send("orig_#{field}", method, options) + error_details(method)
       end
@@ -50,7 +50,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def collection_select_control(method, collection, value_method, text_method,
                                 orig_options = {}, orig_html_options = {})
     options = orig_options.merge(include_blank: true)
-    html_options = decorate_html(method, orig_html_options)
+    html_options = decorate_opts(method, orig_html_options)
     div_col_md_9 do
       orig_collection_select(method, collection, value_method, text_method, options, html_options) +
         error_details(method)
@@ -103,15 +103,23 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
 
 	# @param method [Symbol] The model method
 	# @param [Hash] options the options to create the form field
+	# @return [Hash] The options decorated
+	def decorate_opts(method, options)
+		opts = decorate_opts_with_errors(method, options)
+		decorate_opts_with_disabled(opts)
+	end
+
+	# @param method [Symbol] The model method
+	# @param [Hash] options the options to create the form field
 	# @return [Hash] The options decorated for showing errors
-  def decorate_errors(method, options)
+  def decorate_opts_with_errors(method, options)
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
     options.merge(class: "form-control #{error_class}")
   end
 
 	# @param [Hash] options the options to create the form field
 	# @return [Hash] The options decorated for showing disabled field
-	def decorate_disable(options)
+	def decorate_opts_with_disabled(options)
     options.merge(disabled: self.options[:disabled])
 	end
 
