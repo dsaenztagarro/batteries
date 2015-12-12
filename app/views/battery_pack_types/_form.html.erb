@@ -1,8 +1,0 @@
-<% disabled ||= false %>
-<%= form_for(battery_pack_type, disabled: disabled)   do |f| %>
-	<%= f.text_field :name %>
-	<%= f.text_area :description %>
-	<%= f.text_field :size %>
-	<%= f.check_box :precharged %>
-  <%= submit(f) %>
-<% end %>
