@@ -1,0 +1,7 @@
+<% disabled ||= false %>
+<%= form_for(battery_model, disabled: disabled)   do |f| %>
+  <%= f.text_field :name %>
+  <%= f.collection_select :battery_size_id, BatterySize.all, :id, :name %>
+  <%= f.text_field :capacity %>
+  <%= submit(f) %>
+<% end %>
