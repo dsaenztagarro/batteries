@@ -16,7 +16,7 @@
             <% @battery_packs.each do |model| %>
               <tr>
                 <td><%= model.id %></td>
-                <td><%= link_to model.battery_pack_type_name, battery_pack_path(model) %></td>
+                <td><%= link_to model.battery_pack_model_fullname, battery_pack_path(model) %></td>
               </tr>
             <% end %>
             </tbody>

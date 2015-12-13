@@ -1,7 +1,5 @@
 <% disabled ||= false %>
 <%= form_for(battery_pack, disabled: disabled) do |f| %>
-  <% cache('all_battery_pack_types') do %>
-    <%= f.collection_select :battery_pack_type, BatteryPackType.all, :id, :name %>
-  <% end %>
+  <%= f.collection_select :battery_pack_model_id, BatteryPackModel.all, :id, :fullname %>
   <%= submit(f) %>
 <% end %>
