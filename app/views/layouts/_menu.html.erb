@@ -23,24 +23,24 @@
         <a href="javascript:;">
           <span class="badge pull-right">10</span>
           <i class="fa fa-inbox"></i>
-          <span>Devices<span class="label label-theme m-l-5">NEW</span></span>
+          <span>Devices</span>
         </a>
         <ul class="sub-menu">
-          <li><a href="<%= device_models_path %>">Device models</a></li>
-          <li><a href="<%= device_categories_path %>">Device Categories</a></li>
+          <li><a href="<%= device_models_path %>"><%= t 'models.device_model' %></a></li>
+          <li><a href="<%= device_categories_path %>"><%= t 'models.device_category' %></a></li>
         </ul>
       </li>
       <li class="has-sub">
         <a href="javascript:;">
           <span class="badge pull-right">10</span>
           <i class="fa fa-inbox"></i>
-          <span>Batteries<span class="label label-theme m-l-5">NEW</span></span>
+          <span>Batteries</span>
         </a>
         <ul class="sub-menu">
-          <li><a href="<%= batteries_path %>">Batteries</a></li>
-          <li><a href="<%= battery_models_path %>">Battery Models</a></li>
-          <li><a href="<%= battery_packs_path %>">Battery Packs</a></li>
-          <li><a href="<%= battery_pack_models_path %>">Battery Pack Models</a></li>
+          <li><a href="<%= batteries_path %>"><%= t 'models.battery' %></a></li>
+          <li><a href="<%= battery_models_path %>"><%= t 'models.battery_model' %></a></li>
+          <li><a href="<%= battery_packs_path %>"><%= t 'models.battery_pack' %></a></li>
+          <li><a href="<%= battery_pack_models_path %>"><%= t 'models.battery_pack_model' %></a></li>
         </ul>
       </li>
           <!-- begin sidebar minify button -->
