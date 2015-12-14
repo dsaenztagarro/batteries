@@ -263,4 +263,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  # This will increase performance dramatically if you use bcrypt and create a
+  # lot of users
+  config.stretches = Rails.env.test? ? 1 : 10
 end

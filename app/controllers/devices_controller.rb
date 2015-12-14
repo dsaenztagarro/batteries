@@ -11,7 +11,7 @@ class DevicesController < SimpleCrud::BaseController
       # :device_filter_list,
       :name,
       :device_model_id
-      # properties_attributes: [:_destroy, :id, :value]
+    # properties_attributes: [:_destroy, :id, :value]
     )
   end
 end

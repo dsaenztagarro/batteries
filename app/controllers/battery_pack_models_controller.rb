@@ -13,7 +13,7 @@ class BatteryPackModelsController < SimpleCrud::BaseController
 
   def battery_pack_model_params
     params.require(:battery_pack_model).permit(
-			:battery_model_id,
+      :battery_model_id,
       :precharged,
       :size
     )
