@@ -47,7 +47,6 @@ group :test do
   gem 'cucumber'
   gem 'database_cleaner'
   gem 'factory_girl'
-  gem 'rspec'
   gem 'rspec-rails', '3.4.0'
 end
 
