@@ -1,9 +1,7 @@
 <% disabled ||= false %>
 <%= form_for(device, disabled: disabled)   do |f| %>
 	<%= f.text_field :name %>
-  <% cache('all_device_categories') do %>
-    <%= f.collection_select :device_category_id, DeviceCategory.all, :id, :name %>
-  <% end %>
-  <%= avatar_for(device_model, f) if edit? %>
+  <%= f.collection_select :device_model_id, DeviceModel.all, :id, :name %>
+  <% # avatar_for(device_model, f) if edit? %>
   <%= submit(f) %>
 <% end %>
