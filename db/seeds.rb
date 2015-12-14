@@ -16,14 +16,31 @@ User.create!(
 
 DeviceCategory.create!(name: 'Keyboard')
 
-BatteryPackType.create!(
-  name: 'AmazonBasics AA (Pack 16)',
-  description: 'AA NiMH Precharged Rechargeable Batteries (16 Pack, 2000 mAh)',
-  precharged: true,
-  size: 16)
+AA = BatterySize.create!(name: 'AA')
+AAA = BatterySize.create!(name: 'AAA')
 
-BatteryPackType.create!(
-  name: 'AmazonBasics AAA (Pack 12)',
-  description: 'AAA NiMH Precharged Rechargeable Batteries (12 Pack, 800 mAh)',
+amazonBasics_AA = BatteryModel.create!(
+  battery_size: AA,
+  capacity: '2000',
+  name: 'AmazonBasics',
+  rechargeable: true
+)
+
+amazonBasics_AAA = BatteryModel.create!(
+  battery_size: AAA,
+  capacity: '800',
+  name: 'AmazonBasics',
+  rechargeable: true
+)
+
+BatteryPackModel.create!(
+  battery_model: amazonBasics_AA,
   precharged: true,
-  size: 12)
+  size: 16
+)
+
+BatteryPackModel.create!(
+  battery_model: amazonBasics_AAA,
+  precharged: true,
+  size: 12
+)

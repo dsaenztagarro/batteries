@@ -11,33 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211092605) do
+ActiveRecord::Schema.define(version: 20151214205419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "batteries", force: :cascade do |t|
-    t.integer  "battery_packs_id"
+    t.integer  "battery_model_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  create_table "battery_pack_types", force: :cascade do |t|
-    t.string   "name",                        null: false
-    t.text     "description",                 null: false
-    t.integer  "size",                        null: false
-    t.boolean  "precharged",  default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+  create_table "battery_models", force: :cascade do |t|
+    t.integer  "battery_size_id"
+    t.integer  "capacity"
+    t.string   "name"
+    t.boolean  "rechargeable"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "battery_pack_models", force: :cascade do |t|
+    t.integer "battery_model_id"
+    t.boolean "precharged"
+    t.integer "size"
   end
 
   create_table "battery_packs", force: :cascade do |t|
-    t.integer  "battery_pack_type_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "battery_pack_model_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "battery_sizes", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,29 +55,21 @@ ActiveRecord::Schema.define(version: 20151211092605) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "device_models", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "battery_size_id"
+    t.integer  "battery_number"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "devices", force: :cascade do |t|
     t.string   "name"
-    t.integer  "device_category_id"
+    t.integer  "device_model_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-  end
-
-  create_table "properties", force: :cascade do |t|
-    t.string   "value"
-    t.integer  "property_type_id"
-    t.integer  "attributable_id"
-    t.string   "attributable_type"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  add_index "properties", ["attributable_type", "attributable_id"], name: "index_properties_on_attributable_type_and_attributable_id", using: :btree
-  add_index "properties", ["property_type_id"], name: "index_properties_on_property_type_id", using: :btree
-
-  create_table "property_types", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

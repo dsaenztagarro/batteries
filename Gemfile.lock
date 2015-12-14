@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/dsaenztagarro/simplecrud.git
-  revision: 07bfac56e5860eac4a72c4c109a7b54b9269caa9
+  revision: a033d95e187eb6396a09bc99449e5696eb790a76
   branch: master
   specs:
-    simplecrud (0.1.0)
+    simplecrud (0.1.1)
 
 GEM
   remote: https://rubygems.org/

@@ -13,7 +13,7 @@ module FormHelper
     elsif arg.is_a? String
       title = arg
     else
-      raise ArgumentError, 'Invalid panel arg'
+      fail ArgumentError, 'Invalid panel arg'
     end
     render layout: '/shared/panel', locals: { title: title }, &block
   end

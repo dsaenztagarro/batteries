@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= panel_for @device_models do %>
+      <% if @device_models.empty? %>
+        <%= alert_empty @device_models %>
+      <% else %>
+        <div class="table-responsive">
+          <table id="data-table" class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Bt.size</th>
+                <th>Bt.number</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @device_models.each do |model| %>
+              <tr>
+                <td><%= link_to model.name, device_model_path(model) %></td>
+                <td><%= model.battery_size_name %></td>
+                <td><%= model.battery_number %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+        <hr>
+      <% end %>
+      <%= link_to 'New device model', new_device_model_path, class: 'btn btn-primary m-r-5 m-b-5' %>
+    <% end %>
+  </div>
+</div>

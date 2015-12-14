@@ -3,7 +3,7 @@
   <% if model.avatar.present? %>
     <%= image_tag model.avatar.url, size: '140x140', class: 'img-thumbnail' %>
   <% else %>
-    <%= alert_info t('message.avatar.empty') %>
+    <%= alert_info t('messages.avatar_empty') %>
   <% end %>
 <% else %>
   <%= f.file_field :avatar %>

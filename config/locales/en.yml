@@ -53,18 +53,22 @@ en:
   inputgroup:
     properties: "Properties"
 
-  message:
-    property:
-      list_empty: "The property list is empty"
-    avatar:
-      empty: "No avatar uploaded"
+  messages:
+    avatar_empty: "No avatar uploaded"
+    properties_empty: "The property list is empty"
+    record_created: "The %{model} was create"
+    record_destroyed: "The %{model} was deleted"
+    record_updated: "The %{model} was updated"
 
-  model:
+  models:
+    battery: "Battery"
+    battery_model: "Battery model"
+    battery_pack: "Battery pack"
+    battery_pack_model: "Battery pack model"
     device: "Device"
+    device_model: "Device model"
     device_category: "Device category"
     property_type: "Device property type"
-    batterypack: "Battery pack"
-    batterypacktype: "Battery pack type"
 
   panel:
     action:

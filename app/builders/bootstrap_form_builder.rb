@@ -16,7 +16,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     alias_method "orig_#{field}", field
   end
 
-  # Overrides default methods of FormBuilder
+  # Add control form methods to FormBuilder
   %w(
     email_field
     password_field

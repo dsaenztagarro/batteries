@@ -23,16 +23,25 @@
         <a href="javascript:;">
           <span class="badge pull-right">10</span>
           <i class="fa fa-inbox"></i>
-          <span>Admin<span class="label label-theme m-l-5">NEW</span></span>
+          <span>Devices<span class="label label-theme m-l-5">NEW</span></span>
         </a>
         <ul class="sub-menu">
+          <li><a href="<%= device_models_path %>">Device models</a></li>
           <li><a href="<%= device_categories_path %>">Device Categories</a></li>
-          <li><a href="<%= property_types_path %>">Device Attribute Types</a></li>
-          <li><a href="<%= batteries_path %>">Batteries</a></li>
-          <li><a href="<%= battery_packs_path %>">Battery Packs</a></li>
-          <li><a href="<%= battery_pack_types_path %>">Battery Pack Types</a></li>
         </ul>
       </li>
+      <li class="has-sub">
+        <a href="javascript:;">
+          <span class="badge pull-right">10</span>
+          <i class="fa fa-inbox"></i>
+          <span>Batteries<span class="label label-theme m-l-5">NEW</span></span>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="<%= batteries_path %>">Batteries</a></li>
+          <li><a href="<%= battery_models_path %>">Battery Models</a></li>
+          <li><a href="<%= battery_packs_path %>">Battery Packs</a></li>
+          <li><a href="<%= battery_pack_models_path %>">Battery Pack Models</a></li>
+        </ul>
       </li>
           <!-- begin sidebar minify button -->
       <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
