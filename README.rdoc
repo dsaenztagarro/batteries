@@ -1,3 +1,0 @@
-# rb-batteries
-
-Rails app for management of electronic devices at home
