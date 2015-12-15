@@ -13,6 +13,6 @@ script:
 - export RACK_ENV=test
 - bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
-- rspec
+- bundle exec rake
 addons:
   postgresql: "9.4"
