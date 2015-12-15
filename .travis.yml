@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.2.3
+cache: bundler
+before_install:
+- gem update --system
+- gem --version
+before_script:
+- psql -c 'create database myfamilyweb_test;' -U postgres
+- cp config/database.travis.yml config/database.yml
+script:
+- export TRAVIS=true
+- export RACK_ENV=test
+- bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- rspec
+addons:
+  postgresql: "9.4"
