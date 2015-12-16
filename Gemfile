@@ -45,10 +45,11 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', '~> 0.8.10'
-  gem 'cucumber-rails', '1.4.2'
+  gem 'cucumber-rails', '1.4.2', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '4.5.0'
   gem 'rspec-rails', '3.4.0'
+  gem 'shoulda-matchers', '~> 3.0'
   gem 'simplecov', '~> 0.11.0'
   gem 'simplecov-console', '~> 0.2.0'
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe BatterySizesController do
-  describe 'GET index' do
+  describe 'GET #index' do
     context 'when user is logged in' do
       login_user
 
@@ -50,19 +50,34 @@ describe BatterySizesController do
 
     context 'when user is logged out' do
       it 'redirects to login page' do
-        get :index
+        get :show, id: create(:battery_size)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
 
-  describe 'GET new' do
-    login_user
+  describe 'GET #new' do
+    context 'when user is logged in' do
+      login_user
 
-    it 'assigns @battery_size a new instance' do
-      get :new
-      expect(assigns(:battery_size)).to be_a_new(BatterySize)
+      it 'assigns @battery_size a new instance' do
+        get :new
+        expect(assigns(:battery_size)).to be_a_new(BatterySize)
+      end
+    end
+
+    context 'when user is logged out' do
+      it 'redirects to login page' do
+        get :new
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
 
+  describe 'POST #create' do
+    context 'when user is logged in' do
+      login_user
+
+    end
+  end
 end
