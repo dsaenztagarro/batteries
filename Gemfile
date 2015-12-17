@@ -54,7 +54,7 @@ group :test do
   gem 'simplecov-console', '~> 0.2.0'
 end
 
-group :development, :test do
+group :test, :development do
   gem 'byebug'
   gem 'cane'
   gem 'pry-byebug'
