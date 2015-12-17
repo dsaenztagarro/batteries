@@ -6,7 +6,8 @@ describe BatterySizesController do
       login_user
 
       it 'populates an array of battery sizes' do
-        battery_size = BatterySize.create(name: 'AA')
+        battery_size = build(:battery_size, name: 'AA')
+        allow(BatterySize).to receive(:all).and_return([battery_size])
         get :index
         expect(assigns(:battery_sizes)).to eq([battery_size])
       end
