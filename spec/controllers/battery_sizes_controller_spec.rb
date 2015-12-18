@@ -36,7 +36,8 @@ describe BatterySizesController do
       login_user
 
       before(:each) do
-        @battery_size = create(:battery_size)
+        @battery_size = create(:battery_size, name: 'AA')
+        allow(BatterySize).to receive(:find).and_return(@battery_size)
         get :show, id: @battery_size
       end
 
