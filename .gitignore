@@ -18,3 +18,5 @@ bin/
 /tmp
 
 config/database.yml
+
+.byebug_history
