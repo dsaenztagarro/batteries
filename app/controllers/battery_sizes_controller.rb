@@ -5,7 +5,7 @@ class BatterySizesController < SimpleCrud::BaseController
 
   def battery_size_params
     params.require(:battery_size).permit(
-      :battery_size_model_id
+      :name
     )
   end
 end

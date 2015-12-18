@@ -80,6 +80,13 @@ describe BatterySizesController do
     context 'when user is logged in' do
       login_user
 
+      before(:each) do
+        post :create, battery_size: build(:battery_size).attributes
+      end
+
+      it 'redirects to battery size show page' do
+        expect(response).to redirect_to(battery_size_path(BatterySize.last))
+      end
     end
   end
 end
