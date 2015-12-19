@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe BatteryModelsController do
   let(:valid_attributes) { build(:battery_model).attributes }
+  let(:invalid_attributes) { attributes_for(:invalid_battery_model) }
 
   describe 'GET #index' do
     context 'when user is logged in' do
@@ -82,42 +83,35 @@ describe BatteryModelsController do
     context 'when user is logged in' do
       login_user
 
-      # before(:each) do
-      #   post :create, battery_model: valid_attributes
-      # end
-
-      # it 'redirects to battery model show page' do
-      #   expect(response).to redirect_to(battery_model_path(BatteryModel.last))
-      # end
-
-      context "with valid params" do
-        it "creates a new BatteryModel" do
-          expect {
-            post :create, {:battery_model => valid_attributes}, valid_session
-          }.to change(BatteryModel, :count).by(1)
+      context 'with valid params' do
+        it 'creates a new BatteryModel' do
+          expect do
+            post :create, { battery_model: valid_attributes }
+          end.to change(BatteryModel, :count).by(1)
         end
 
-        it "assigns a newly created battery model as @battery_model" do
-          post :create, {:battery_model => valid_attributes}, valid_session
+        it 'assigns a newly created battery model as @battery_model' do
+          post :create, { battery_model: valid_attributes }
           expect(assigns(:battery_model)).to be_a(BatteryModel)
           expect(assigns(:battery_model)).to be_persisted
         end
 
-        it "redirects to the created battery model" do
-          post :create, {:battery_model => valid_attributes}, valid_session
+        it 'redirects to the created battery model' do
+          post :create, { battery_model: valid_attributes }
           expect(response).to redirect_to(BatteryModel.last)
         end
       end
 
-      context "with invalid params" do
-        it "assigns a newly created but unsaved battery model as @battery_model" do
-          post :create, {:battery_model => invalid_attributes}, valid_session
+      context 'with invalid params' do
+        it 'assigns a newly created but unsaved battery model' \
+           'as @battery_model' do
+          post :create, { battery_model: invalid_attributes }
           expect(assigns(:battery_model)).to be_a_new(BatteryModel)
         end
 
         it "re-renders the 'new' template" do
-          post :create, {:battery_model => invalid_attributes}, valid_session
-          expect(response).to render_template("new")
+          post :create, { battery_model: invalid_attributes }
+          expect(response).to render_template('new')
         end
       end
     end
@@ -140,13 +134,13 @@ describe BatteryModelsController do
 
       context 'valid attributes' do
         it 'located the requested @battery_model' do
-          put :update, id: @battery_model, battery_model: attributes_for(:battery_model)
+          put :update, id: @battery_model, battery_model: valid_attributes
           expect(assigns(:battery_model)).to eq(@battery_model)
         end
 
         it "changes @battery_model's attributes" do
-          put :update, id: @battery_model,
-                       battery_model: attributes_for(:battery_model, name: 'Duracell')
+          new_attributes = attributes_for(:battery_model, name: 'Duracell')
+          put :update, id: @battery_model, battery_model: new_attributes
           @battery_model.reload
           expect(@battery_model.name).to eq('Duracell')
         end
@@ -181,7 +175,7 @@ describe BatteryModelsController do
     context 'when user is logged out' do
       it 'redirects to login page' do
         put :update, id: @battery_model,
-          battery_model: attributes_for(:battery_model)
+                     battery_model: attributes_for(:battery_model)
         expect(response).to redirect_to(new_user_session_path)
       end
     end

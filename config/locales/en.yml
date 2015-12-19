@@ -65,6 +65,8 @@ en:
     battery_model: "Battery model"
     battery_pack: "Battery pack"
     battery_pack_model: "Battery pack model"
+    battery_size: "Battery size"
+    brand: "Brand"
     device: "Device"
     device_model: "Device model"
     device_category: "Device category"

@@ -1,0 +1,4 @@
+<%= panel_for @brand do %>
+  <%= render 'form', brand: @brand, disabled: true %>
+  <%= crud_buttons(@brand) %>
+<% end %>

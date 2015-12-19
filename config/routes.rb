@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :brands
+  resources :brands
+  resources :brands
+  resources :brands
+  resources :brands
+  resources :brands
+  resources :battery_sizes
   authenticate :user do
     resources :battery_sizes
     resources :battery_models
