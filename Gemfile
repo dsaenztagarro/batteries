@@ -40,6 +40,12 @@ group :development do
   gem 'capistrano-rvm', '0.1.1'
   gem 'capistrano-rails', '1.1.5'
   gem 'capistrano-passenger', '0.2.0'
+
+  gem 'rb-fchange', require: false # Windows
+  gem 'rb-fsevent', require: false # OS X
+  gem 'rb-inotify', require: false # Linux
+  gem 'terminal-notifier-guard'
+
   gem 'guard', '2.13.0'
   gem 'guard-bundler', '2.1.0'
   gem 'guard-cucumber', '1.5.4'
