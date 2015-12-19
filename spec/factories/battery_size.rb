@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :battery_size do
-    sequence(:name) {|n| "BatterySize #{n}" }
+    sequence(:name) { |n| "BatterySize #{n}" }
   end
 
   factory :invalid_battery_size, parent: :battery_size do

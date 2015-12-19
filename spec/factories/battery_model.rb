@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :battery_model do
-    sequence(:name) {|n| "BatteryModel #{n}" }
+    sequence(:name) { |n| "BatteryModel #{n}" }
     capacity 2000
     battery_size
     rechargeable false

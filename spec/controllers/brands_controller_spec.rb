@@ -86,18 +86,18 @@ describe BrandsController do
       context 'with valid params' do
         it 'creates a new Brand' do
           expect do
-            post :create, { brand: valid_attributes }
+            post :create, brand: valid_attributes
           end.to change(Brand, :count).by(1)
         end
 
         it 'assigns a newly created battery model as @brand' do
-          post :create, { brand: valid_attributes }
+          post :create, brand: valid_attributes
           expect(assigns(:brand)).to be_a(Brand)
           expect(assigns(:brand)).to be_persisted
         end
 
         it 'redirects to the created battery model' do
-          post :create, { brand: valid_attributes }
+          post :create, brand: valid_attributes
           expect(response).to redirect_to(Brand.last)
         end
       end
@@ -105,12 +105,12 @@ describe BrandsController do
       context 'with invalid params' do
         it 'assigns a newly created but unsaved battery model' \
            'as @brand' do
-          post :create, { brand: invalid_attributes }
+          post :create, brand: invalid_attributes
           expect(assigns(:brand)).to be_a_new(Brand)
         end
 
         it "re-renders the 'new' template" do
-          post :create, { brand: invalid_attributes }
+          post :create, brand: invalid_attributes
           expect(response).to render_template('new')
         end
       end

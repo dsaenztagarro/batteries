@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :brand do
-    sequence(:name) {|n| "Brand #{n}" }
+    sequence(:name) { |n| "Brand #{n}" }
   end
 
   factory :invalid_brand, parent: :brand do

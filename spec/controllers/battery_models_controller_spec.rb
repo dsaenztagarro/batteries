@@ -86,18 +86,18 @@ describe BatteryModelsController do
       context 'with valid params' do
         it 'creates a new BatteryModel' do
           expect do
-            post :create, { battery_model: valid_attributes }
+            post :create, battery_model: valid_attributes
           end.to change(BatteryModel, :count).by(1)
         end
 
         it 'assigns a newly created battery model as @battery_model' do
-          post :create, { battery_model: valid_attributes }
+          post :create, battery_model: valid_attributes
           expect(assigns(:battery_model)).to be_a(BatteryModel)
           expect(assigns(:battery_model)).to be_persisted
         end
 
         it 'redirects to the created battery model' do
-          post :create, { battery_model: valid_attributes }
+          post :create, battery_model: valid_attributes
           expect(response).to redirect_to(BatteryModel.last)
         end
       end
@@ -105,12 +105,12 @@ describe BatteryModelsController do
       context 'with invalid params' do
         it 'assigns a newly created but unsaved battery model' \
            'as @battery_model' do
-          post :create, { battery_model: invalid_attributes }
+          post :create, battery_model: invalid_attributes
           expect(assigns(:battery_model)).to be_a_new(BatteryModel)
         end
 
         it "re-renders the 'new' template" do
-          post :create, { battery_model: invalid_attributes }
+          post :create, battery_model: invalid_attributes
           expect(response).to render_template('new')
         end
       end

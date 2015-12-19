@@ -148,7 +148,7 @@ describe BatterySizesController do
     context 'when user is logged out' do
       it 'redirects to login page' do
         put :update, id: @battery_size,
-          battery_size: attributes_for(:battery_size)
+                     battery_size: attributes_for(:battery_size)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
