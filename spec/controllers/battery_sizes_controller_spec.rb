@@ -113,32 +113,33 @@ describe BatterySizesController do
 
         it "changes @battery_size's attributes" do
           put :update, id: @battery_size,
-            battery_size: attributes_for(:battery_size, name: 'AAA')
+                       battery_size: attributes_for(:battery_size, name: 'AAA')
           @battery_size.reload
           expect(@battery_size.name).to eq('AAA')
         end
 
         it 'redirects to the updated battery_size' do
-          put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+          put :update, id: @battery_size,
+                       battery_size: attributes_for(:battery_size)
           expect(response).to redirect_to @battery_size
         end
       end
 
       context 'invalid attributes' do
+        before :each do
+          put :update, id: @battery_size,
+                       battery_size: attributes_for(:invalid_battery_size)
+        end
         it 'locates the requested @battery_size' do
-          put :update, id: @battery_size, battery_size: attributes_for(:invalid_battery_size)
           expect(assigns(:battery_size)).to eq(@battery_size)
         end
 
         it "does not change @battery_size's attributes" do
-          put :update, id: @battery_size,
-            battery_size: attributes_for(:battery_size, name: nil)
           @battery_size.reload
           expect(@battery_size.name).to eq('AA')
         end
 
         it 're-renders the edit method' do
-          put :update, id: @battery_size, battery_size: attributes_for(:invalid_battery_size)
           expect(response).to render_template :edit
         end
       end
@@ -146,8 +147,30 @@ describe BatterySizesController do
 
     context 'when user is logged out' do
       it 'redirects to login page' do
-        put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+        put :update, id: @battery_size,
+          battery_size: attributes_for(:battery_size)
         expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    before :each do
+      @battery_size = create(:battery_size)
+    end
+
+    context 'when user is logged in' do
+      login_user
+
+      it 'deletes the battery_size' do
+        expect do
+          delete :destroy, id: @battery_size
+        end.to change(BatterySize, :count).by(-1)
+      end
+
+      it 'redirects to battery_sizes#index' do
+        delete :destroy, id: @battery_size
+        expect(response).to redirect_to battery_sizes_url
       end
     end
   end
