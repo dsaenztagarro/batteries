@@ -106,6 +106,11 @@ describe BatterySizesController do
       login_user
 
       context 'valid attributes' do
+        it 'located the requested @battery_size' do
+          put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+          expect(assigns(:battery_size)).to eq(@battery_size)
+        end
+
         it "changes @battery_size's attributes" do
           put :update, id: @battery_size,
             battery_size: attributes_for(:battery_size, name: 'AAA')
@@ -116,6 +121,25 @@ describe BatterySizesController do
         it 'redirects to the updated battery_size' do
           put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
           expect(response).to redirect_to @battery_size
+        end
+      end
+
+      context 'invalid attributes' do
+        it 'locates the requested @battery_size' do
+          put :update, id: @battery_size, battery_size: attributes_for(:invalid_battery_size)
+          expect(assigns(:battery_size)).to eq(@battery_size)
+        end
+
+        it "does not change @battery_size's attributes" do
+          put :update, id: @battery_size,
+            battery_size: attributes_for(:battery_size, name: nil)
+          @battery_size.reload
+          expect(@battery_size.name).to eq('AA')
+        end
+
+        it 're-renders the edit method' do
+          put :update, id: @battery_size, battery_size: attributes_for(:invalid_battery_size)
+          expect(response).to render_template :edit
         end
       end
     end
