@@ -29,7 +29,7 @@ amazonBasics_AA = BatteryModel.create!(
 amazonBasics_AAA = BatteryModel.create!(
   battery_size: AAA,
   capacity: '800',
-  name: 'AmazonBasics',
+  name: 'AmazonBasic',
   rechargeable: true
 )
 
