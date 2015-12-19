@@ -88,5 +88,43 @@ describe BatterySizesController do
         expect(response).to redirect_to(battery_size_path(BatterySize.last))
       end
     end
+
+    context 'when user is logged out' do
+      it 'redirects to login page' do
+        post :create, battery_size: build(:battery_size).attributes
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe 'PUT #update' do
+    before :each do
+      @battery_size = create(:battery_size, name: 'AA')
+    end
+
+    context 'when user is logged in' do
+      login_user
+
+      context 'valid attributes' do
+        it "changes @battery_size's attributes" do
+          put :update, id: @battery_size,
+            battery_size: attributes_for(:battery_size, name: 'AAA')
+          @battery_size.reload
+          expect(@battery_size.name).to eq('AAA')
+        end
+
+        it 'redirects to the updated battery_size' do
+          put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+          expect(response).to redirect_to @battery_size
+        end
+      end
+    end
+
+    context 'when user is logged out' do
+      it 'redirects to login page' do
+        put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
