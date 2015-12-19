@@ -14,6 +14,6 @@ FactoryGirl.define do
 
   factory :invalid_battery_model, parent: :battery_model do
     skip_create
-    battery_size nil
+    name nil
   end
 end

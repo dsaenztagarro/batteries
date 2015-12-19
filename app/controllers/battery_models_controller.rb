@@ -7,7 +7,8 @@ class BatteryModelsController < SimpleCrud::BaseController
     params.require(:battery_model).permit(
       :battery_size_id,
       :capacity,
-      :name
+      :name,
+      :rechargeable
     )
   end
 end

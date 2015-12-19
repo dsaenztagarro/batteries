@@ -6,7 +6,7 @@ describe BatterySizesController do
       login_user
 
       it 'populates an array of battery sizes' do
-        battery_size = build(:battery_size, name: 'AA')
+        battery_size = build(:battery_size)
         allow(BatterySize).to receive(:all).and_return([battery_size])
         get :index
         expect(assigns(:battery_sizes)).to eq([battery_size])
@@ -36,7 +36,7 @@ describe BatterySizesController do
       login_user
 
       before(:each) do
-        @battery_size = create(:battery_size, name: 'AA')
+        @battery_size = create(:battery_size)
         allow(BatterySize).to receive(:find).and_return(@battery_size)
         get :show, id: @battery_size
       end

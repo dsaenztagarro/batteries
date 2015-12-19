@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   authenticate :user do
-    resources :device_models
     resources :battery_sizes
     resources :battery_models
     resources :battery_packs
-    resources :batteries
-    resources :battery_sizes
-    resources :device_categories
     resources :battery_pack_models
+    resources :batteries
+    resources :device_models
+    resources :device_categories
   end
 
   devise_for :users
@@ -25,9 +24,8 @@ Rails.application.routes.draw do
   end
 
   resources :devices, concerns: :attributable
-  resources :device_categories
 
-  resources :property_types
+  # resources :property_types
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
