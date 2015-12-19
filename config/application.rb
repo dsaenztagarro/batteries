@@ -36,6 +36,7 @@ module Family
       g.javascripts false
       g.stylesheets false
       g.test_framework :rspec, fixture: true
+      g.templates.unshift File::expand_path('../templates', __FILE__)
     end
   end
 end
