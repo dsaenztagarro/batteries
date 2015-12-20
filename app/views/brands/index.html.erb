@@ -14,7 +14,7 @@
             <tbody>
             <% @brands.each do |model| %>
               <tr>
-                <td><%= model.name %></td>
+                <td><%= link_to model.name, brand_path(model) %></td>
               </tr>
             <% end %>
             </tbody>
