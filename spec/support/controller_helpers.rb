@@ -8,6 +8,10 @@ module ControllerHelpers
     end
   end
 
+  def attributes_with_foreign_keys(name)
+    build(name).attributes
+  end
+
   # def sign_in(user = double('user'))
   #   if user.nil?
   #     allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
