@@ -8,8 +8,11 @@ default: &default
 development:
   <<: *default
 
-test:
+test: &test
   <<: *default
   database: myfamilyweb_test
   username: test
   password: test
+
+cucumber:
+  <<: *test
