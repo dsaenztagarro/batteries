@@ -12,5 +12,5 @@ Given(/^I am a new, authenticated user$/) do
   visit '/users/sign_in'
   fill_in 'user_email', with: email
   fill_in 'user_password', with: password
-  click_button 'Sign in'
+  click_button 'Sign me in'
 end
