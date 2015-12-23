@@ -7,8 +7,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18.4'
 gem 'paperclip', '~> 4.3'
-gem 'responders', '~> 2.0'
-gem 'searchkick'
+gem 'responders', '~> 2.1'
+gem 'searchkick', '~> 1.1.2'
 gem 'sqlite3'
 gem 'turbolinks'
 
@@ -16,7 +16,7 @@ gem 'turbolinks'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -37,7 +37,7 @@ gem 'simplecrud', github: 'dsaenztagarro/simplecrud', branch: 'master'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rvm', '0.1.1'
+  gem 'capistrano-rvm', '0.1.2'
   gem 'capistrano-rails', '1.1.5'
   gem 'capistrano-passenger', '0.2.0'
 
@@ -71,8 +71,8 @@ group :test, :development do
   gem 'reek'
   gem 'rubocop'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.6.1'
   gem 'spring-commands-rspec', '~> 1.0.4'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0.0'
 end

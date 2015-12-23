@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/dsaenztagarro/simplecrud.git
-  revision: a033d95e187eb6396a09bc99449e5696eb790a76
+  revision: a4a30adffe1e043f55eb9675ed17f8fda52da747
   branch: master
   specs:
-    simplecrud (0.1.1)
+    simplecrud (0.1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -48,7 +48,7 @@ GEM
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
     arel (6.0.3)
-    ast (2.1.0)
+    ast (2.2.0)
     astrolabe (1.3.1)
       parser (~> 2.2)
     axiom-types (0.1.1)
@@ -56,8 +56,6 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.1)
     cane (2.6.2)
@@ -74,7 +72,7 @@ GEM
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-rvm (0.1.1)
+    capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     capybara (2.5.0)
@@ -92,9 +90,9 @@ GEM
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.1.0)
+    coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -221,7 +219,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (3.0.1)
     netrc (0.11.0)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
       nenv (~> 0.1)
@@ -281,15 +279,16 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.2.0)
+    rdoc (4.2.1)
+      json (~> 1.4)
     reek (3.7.1)
       codeclimate-engine-rb (~> 0.1.0)
       parser (~> 2.2, >= 2.2.2.5)
       private_attr (~> 1.1)
       rainbow (~> 2.0)
       unparser (~> 0.2.2)
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
+    responders (2.1.1)
+      railties (>= 4.2.0, < 5.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -333,12 +332,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    searchkick (1.1.0)
+    searchkick (1.1.2)
       activemodel
       elasticsearch (>= 1)
       hashie
     shellany (0.0.1)
-    shoulda-matchers (3.0.0)
+    shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
     simplecov (0.11.1)
       docile (~> 1.1.0)
@@ -350,16 +349,16 @@ GEM
       simplecov
     simplecov-html (0.10.0)
     slop (3.6.0)
-    spring (1.5.0)
+    spring (1.6.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (2.3.3)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      sprockets (>= 2.8, < 4.0)
+    sprockets-rails (3.0.0)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
     sshkit (1.8.1)
       net-scp (>= 1.1.2)
@@ -396,11 +395,10 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.4)
       rack (>= 1.0)
-    web-console (2.2.1)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
+    web-console (3.0.0)
+      activemodel (>= 4.2)
+      debug_inspector
+      railties (>= 4.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -413,9 +411,9 @@ DEPENDENCIES
   capistrano (~> 3.4.0)
   capistrano-passenger (= 0.2.0)
   capistrano-rails (= 1.1.5)
-  capistrano-rvm (= 0.1.1)
+  capistrano-rvm (= 0.1.2)
   capybara
-  coffee-rails (~> 4.1.0)
+  coffee-rails (~> 4.1.1)
   coveralls (~> 0.8.10)
   cucumber-rails (= 1.4.2)
   database_cleaner
@@ -435,23 +433,23 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   reek
-  responders (~> 2.0)
+  responders (~> 2.1)
   rspec-rails (= 3.4.0)
   rubocop
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  searchkick
+  searchkick (~> 1.1.2)
   shoulda-matchers (~> 3.0)
   simplecov (~> 0.11.0)
   simplecov-console (~> 0.2.0)
   simplecrud!
-  spring
+  spring (~> 1.6.1)
   spring-commands-rspec (~> 1.0.4)
   sqlite3
   terminal-notifier-guard
   turbolinks
   uglifier (>= 1.3.0)
-  web-console (~> 2.0)
+  web-console (~> 3.0.0)
 
 BUNDLED WITH
    1.10.6

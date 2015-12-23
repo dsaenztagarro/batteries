@@ -16,4 +16,4 @@ Feature: Create battery size
       Given I fill in "battery size name" with ""
       When I press "Create Battery size"
       Then I should see "New Battery size"
-      And I should see "1 error prohibited this battery_size from being saved"
+      And I should see "1 error prohibited this battery size from being saved"
