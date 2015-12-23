@@ -38,5 +38,7 @@ module Family
       g.test_framework :rspec, fixture: true
       g.templates.unshift File.expand_path('../templates', __FILE__)
     end
+
+    config.web_console.development_only = false
   end
 end

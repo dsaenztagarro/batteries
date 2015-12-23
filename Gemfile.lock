@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/dsaenztagarro/simplecrud.git
-  revision: a4a30adffe1e043f55eb9675ed17f8fda52da747
+  revision: f1f19b3db26d2e61f6f15fa9b9e306c06bf7b069
   branch: master
   specs:
     simplecrud (0.1.2)
