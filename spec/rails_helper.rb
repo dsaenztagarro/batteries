@@ -4,21 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 
-require 'simplecov'
-require 'simplecov-console'
-require 'coveralls'
-
-formatters = [Coveralls::SimpleCov::Formatter,
-              SimpleCov::Formatter::HTMLFormatter,
-              SimpleCov::Formatter::Console]
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(formatters)
-SimpleCov.command_name 'RSpec'
-# SimpleCov.minimum_coverage(100)
-SimpleCov.start 'rails'
-
-# Coveralls.wear!('rails')
-
+require 'coverage_helper'
 require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda/matchers'
