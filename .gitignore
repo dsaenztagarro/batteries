@@ -17,6 +17,10 @@ bin/
 !/log/.keep
 /tmp
 
+# Ignore production shared files
 config/database.yml
+
+# Ignore coverage reports
+coverage/
 
 .byebug_history
