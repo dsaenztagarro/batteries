@@ -9,5 +9,4 @@ require 'coveralls/rake/task'
 Coveralls::RakeTask.new
 task :test_with_coveralls => ['spec', 'cucumber:ok', 'coveralls:push']
 
-# task default: ['spec', 'cucumber:ok']
 task default: :test_with_coveralls
