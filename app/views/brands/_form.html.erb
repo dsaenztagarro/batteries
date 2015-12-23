@@ -1,17 +1,6 @@
 <% disabled ||= false %>
 <%= form_for(brand, disabled: disabled) do |f| %>
-  <% if @brand.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
-      <ul>
-      <% @brand.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+    <%= error_explanation(brand) %>
     <%= f.text_field :name %>
   <%= submit(f) %>
 <% end %>
