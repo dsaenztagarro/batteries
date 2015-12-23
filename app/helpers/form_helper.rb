@@ -3,6 +3,12 @@ module FormHelper
     render 'shared/crud_buttons', model: model
   end
 
+  # Show error alert message with
+  # @param resource [ActiveRecord::Base]
+  def error_explanation(resource)
+    render 'shared/error_explanation', resource: resource
+  end
+
   # @param [String, ActiveRecord::Base]
   # @yield The content of the panel
   def panel_for(arg, &block)

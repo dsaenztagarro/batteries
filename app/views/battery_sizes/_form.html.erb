@@ -1,17 +1,6 @@
 <% disabled ||= false %>
 <%= form_for(battery_size, disabled: disabled) do |f| %>
-  <% if @battery_size.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@battery_size.errors.count, "error") %> prohibited this battery_size from being saved:</h2>
-
-      <ul>
-      <% @battery_size.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+    <%= error_explanation(battery_size) %>
     <%= f.text_field :name %>
   <%= submit(f) %>
 <% end %>

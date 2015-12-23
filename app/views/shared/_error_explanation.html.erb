@@ -1,0 +1,12 @@
+<% resource_humanize = t("models.#{resource.class.to_s.underscore}").downcase %>
+<% if resource.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <strong><%= pluralize(resource.errors.count, "error") %> prohibited this
+    <%= resource_humanize %> from being saved:</strong>
+    <ul>
+    <% resource.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
