@@ -1,8 +1,9 @@
 Feature: Create battery size
 
-  Scenario: Create battery size with valid attributes
+  Background:
     Given I am a new, authenticated user
-    When I click "Admin"
-    And I click "Battery size"
-    Then I should see "Battery size list"
+    And I am on the battery sizes page
+
+    Scenario: Create battery size with valid attributes
+      Then I should see "Battery size list"
 

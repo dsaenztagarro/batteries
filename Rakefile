@@ -5,4 +5,9 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-task default: ['spec', 'cucumber:ok']
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+task :test_with_coveralls => ['spec', 'cucumber:ok', 'coveralls:push']
+
+# task default: ['spec', 'cucumber:ok']
+task default: :test_with_coveralls
