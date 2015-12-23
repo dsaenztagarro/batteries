@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_battery_size_path(@battery_size) %> |
-<%= link_to 'Back', battery_sizes_path %>
+<%= panel_for @battery_size do %>
+  <%= render 'form', battery_size: @battery_size, disabled: true %>
+  <%= crud_buttons(@battery_size) %>
+<% end %>

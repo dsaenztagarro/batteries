@@ -1,6 +1,4 @@
-<h1>Editing Battery Size</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @battery_size %> |
-<%= link_to 'Back', battery_sizes_path %>
+<%= panel_for @battery_size do %>
+  <%= render 'form', battery_size: @battery_size %>
+  <%= crud_buttons(@battery_size) %>
+<% end %>

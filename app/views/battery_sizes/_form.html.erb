@@ -1,4 +1,5 @@
-<%= form_for(@battery_size) do |f| %>
+<% disabled ||= false %>
+<%= form_for(battery_size, disabled: disabled) do |f| %>
   <% if @battery_size.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@battery_size.errors.count, "error") %> prohibited this battery_size from being saved:</h2>
@@ -11,7 +12,6 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_field :name %>
+  <%= submit(f) %>
 <% end %>
