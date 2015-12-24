@@ -14,7 +14,7 @@
             <tbody>
             <% @battery_sizes.each do |model| %>
               <tr>
-                <td><%= model.name %></td>
+                <td><%= link_to model.name, battery_size_path(model) %></td>
               </tr>
             <% end %>
             </tbody>
