@@ -2,11 +2,9 @@ Feature: Update battery size
 
   Background:
     Given I am a new, authenticated user
-    And I create a battery size with properties:
+    And I create a new battery size with properties:
       | name | AA |
-    And I am on the battery sizes page
-    And I click "AA"
-    And I click "Edit"
+    And I edit the battery size identified by "AA"
 
     Scenario: Update battery size with valid attributes
       Given I fill in "battery size name" with "AAA"
