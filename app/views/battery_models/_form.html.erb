@@ -1,7 +1,9 @@
 <% disabled ||= false %>
 <%= form_for(battery_model, disabled: disabled)   do |f| %>
+  <%= error_explanation(battery_model) %>
   <%= f.text_field :name %>
   <%= f.collection_select :battery_size_id, BatterySize.all, :id, :name %>
   <%= f.text_field :capacity %>
+  <%= f.check_box :rechargeable %>
   <%= submit(f) %>
 <% end %>
