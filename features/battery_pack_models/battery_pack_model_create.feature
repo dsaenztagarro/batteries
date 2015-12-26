@@ -15,7 +15,7 @@ Feature: Create battery pack model
     Scenario: Create battery pack model with valid attributes
       Given I fill the battery pack model form with properties:
         | Battery model | Duracell AA 2400mAh |
-        | Size | 16 |
+        | Size          | 16                  |
       When I press "Create Battery pack model"
       Then I should see "Show Battery pack model"
       And I should see "Success! The Battery pack model was create"
