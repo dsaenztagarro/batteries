@@ -3,7 +3,7 @@ Feature: Update battery size
   Background:
     Given I am a new, authenticated user
     And I create a new battery size with properties:
-      | name | AA |
+      | Name | AA |
     And I edit the battery size identified by "AA"
 
     Scenario: Update battery size with valid attributes

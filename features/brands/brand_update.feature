@@ -3,7 +3,7 @@ Feature: Update brand
   Background:
     Given I am a new, authenticated user
     And I create a new brand with properties:
-      | name | AA |
+      | Name | AA |
     And I edit the brand identified by "AA"
 
     Scenario: Update brand with valid attributes

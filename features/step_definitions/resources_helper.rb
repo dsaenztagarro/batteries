@@ -1,6 +1,14 @@
+SELECTABLE = [
+  'Battery size'
+]
+
 Given (/^I fill the (.+) form with properties:$/) do |resource, table|
   table.rows_hash.each_pair do |key, value|
-    step %{I fill in "#{resource} #{key}" with "#{value}"}
+    if SELECTABLE.include? key
+      step %{I select "#{value}" from "#{key}"}
+    else
+      step %{I fill in "#{key}" with "#{value}"}
+    end
   end
 end
 

@@ -3,15 +3,17 @@ Feature: Create battery model
   Background:
     Given I am a new, authenticated user
     And I create a new battery size with properties:
-      | name | AA |
+      | Name | AA |
     And I am on the battery models page
     And I click "New Battery model"
     And I should be on the new battery model page
 
     Scenario: Create battery model with valid attributes
-      Given I fill in "Name" with "AA"
+      Given I fill the battery model form with properties:
+        | Name         | AA        |
+        | Battery size | AA        |
+        | Capacity     | 2400      |
       And I select "AA" from "Battery size"
-      Given I fill in "Capacity" with "2400"
       When I press "Create Battery model"
       Then I should see "Show Battery model"
       And I should see "Success! The Battery model was create"
