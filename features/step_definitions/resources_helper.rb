@@ -1,6 +1,5 @@
 Given (/^I fill the (.+) form with properties:$/) do |resource, table|
-  resource_params = table.rows_hash
-  resource_params.each_pair do |key, value|
+  table.rows_hash.each_pair do |key, value|
     step %{I fill in "#{resource} #{key}" with "#{value}"}
   end
 end
