@@ -30,9 +30,9 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  # Overrides default label method of FormBuilder
-  def label_control(method, options = {})
-    orig_label(method, options.merge(class: 'col-md-3'))
+  # Decorates default label method of FormBuilder
+  def label_control(method, text = nil, options = {}, &block)
+    orig_label(method, text, options.merge(class: 'col-md-3'), &block)
   end
 
   # Overrides default select method of FormBuilder
@@ -45,7 +45,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   #   end
   # end
 
-  # Overrides default collection_select method of FormBuilder
+  # Decorates default collection_select method of FormBuilder
   def collection_select_control(method, collection, value_method, text_method,
                                 orig_options = {}, orig_html_options = {})
     options = orig_options.merge(include_blank: true)
@@ -56,6 +56,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  # Override default methods of FormBuilder
   %w(
     collection_select
     select
@@ -68,6 +69,22 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
       end
     end
   end
+
+  # Override check_box method of FormBuilder
+  def check_box(method, orig_options = {}, checked_value = '1', unchecked_value = '0')
+    options = decorate_opts_with_disabled(orig_options)
+    div_form_group do
+      div_col_md_9 do
+        @template.content_tag :div, class: 'checkbox' do
+          label_control(method) do
+            orig_check_box(method, options, checked_value, unchecked_value) +
+              method.to_s.humanize
+          end
+        end
+      end
+    end
+  end
+
 
   def input_group_for(text, &_block)
     @template.content_tag :h4, class: 'm-t-20' do
