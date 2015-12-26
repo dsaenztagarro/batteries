@@ -1,8 +1,7 @@
 <% disabled ||= false %>
 <%= form_for(battery_pack_model, disabled: disabled)   do |f| %>
-  <% cache('all_battery_models') do %>
-    <%= f.collection_select :battery_model_id, BatteryModel.all, :id, :fullname %>
-  <% end %>
+  <%= error_explanation(battery_pack_model) %>
+  <%= f.collection_select :battery_model_id, BatteryModel.all, :id, :fullname %>
 	<%= f.text_field :size %>
 	<%= f.check_box :precharged %>
   <%= submit(f) %>

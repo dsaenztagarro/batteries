@@ -1,6 +1,6 @@
 <% disabled ||= false %>
 <%= form_for(battery_size, disabled: disabled) do |f| %>
-    <%= error_explanation(battery_size) %>
-    <%= f.text_field :name %>
+  <%= error_explanation(battery_size) %>
+  <%= f.text_field :name %>
   <%= submit(f) %>
 <% end %>
