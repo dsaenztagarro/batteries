@@ -1,5 +1,6 @@
 <% disabled ||= false %>
 <%= form_for(device, disabled: disabled)   do |f| %>
+  <%= error_explanation(device) %>
 	<%= f.text_field :name %>
   <%= f.collection_select :device_model_id, DeviceModel.all, :id, :name %>
   <% # avatar_for(device_model, f) if edit? %>

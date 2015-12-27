@@ -1,7 +1,8 @@
 SELECTABLE = [
   'Battery size',
   'Battery model',
-  'Battery pack model'
+  'Battery pack model',
+  'Device model'
 ]
 
 Given (/^I fill the (.+) form with properties:$/) do |resource, table|
