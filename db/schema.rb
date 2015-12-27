@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20151219225050) do
   create_table "device_models", force: :cascade do |t|
     t.string   "name"
     t.integer  "battery_size_id"
-    t.integer  "battery_number"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "battery_number",  default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "devices", force: :cascade do |t|

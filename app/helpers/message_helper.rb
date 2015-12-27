@@ -6,6 +6,8 @@ module MessageHelper
     end
   end
 
+  # @param relation [ActiveRecord::Relation]
+  # @return [String] an alert message for empty relation
   def alert_empty(relation)
     model = title_from_relation(relation)
     message = t 'panel.empty', model: model
@@ -13,7 +15,7 @@ module MessageHelper
   end
 
   # @param object [ActiveRecord::Relation]
-  # @return [String] The title of the panel base on the relation object
+  # @return [String] the title of the panel base on the relation object
   def title_from_relation(object)
     model_key = object.class.to_s.split('::').first.underscore.downcase
     t 'panel.action.index', model: t("models.#{model_key}")

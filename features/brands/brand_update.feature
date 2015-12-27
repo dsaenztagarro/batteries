@@ -7,13 +7,13 @@ Feature: Update brand
     And I edit the brand identified by "AA"
 
     Scenario: Update brand with valid attributes
-      Given I fill in "brand name" with "AAA"
+      Given I fill in "Name" with "AAA"
       When I press "Update Brand"
       Then I should see "Show Brand"
       And I should see "Success! The Brand was updated"
 
     Scenario: Update brand with invalid attributes
-      Given I fill in "brand name" with ""
+      Given I fill in "Name" with ""
       When I press "Update Brand"
       Then I should see "Edit Brand"
       And I should see "1 error prohibited this brand from being saved"
