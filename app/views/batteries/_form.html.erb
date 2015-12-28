@@ -1,6 +1,6 @@
 <% disabled ||= false %>
 <%= form_for(battery, disabled: disabled)   do |f| %>
   <%= error_explanation(battery) %>
-  <%= f.collection_select :battery_model_id, BatteryModel.all, :id, :name %>
+  <%= f.collection_select :battery_model_id, BatteryModel.all, :id, :fullname %>
   <%= submit(f) %>
 <% end %>

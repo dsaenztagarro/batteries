@@ -4,6 +4,8 @@ class BatteriesController < SimpleCrud::BaseController
   private
 
   def battery_params
-    params[:battery]
+    params.require(:battery).permit(
+      :battery_model_id
+    )
   end
 end
