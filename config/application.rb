@@ -32,11 +32,12 @@ module Family
     config.autoload_paths << Rails.root.join('/app/validators')
 
     config.generators do |g|
+      g.fixture_replacement :factory_girl
       g.helpers false
       g.javascripts false
       g.stylesheets false
-      g.test_framework :rspec, fixture: true
       g.templates.unshift File.expand_path('../templates', __FILE__)
+      g.test_framework :rspec
     end
 
     config.web_console.development_only = false
