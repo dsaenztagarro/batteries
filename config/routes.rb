@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :locations
+  resources :locations
   authenticate :user do
     resources :brands
     resources :battery_sizes

@@ -1,0 +1,6 @@
+<% disabled ||= false %>
+<%= form_for(location, disabled: disabled) do |f| %>
+  <%= error_explanation(location) %>
+  <%= f.text_field :name %>
+  <%= submit(f) %>
+<% end %>

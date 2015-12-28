@@ -70,6 +70,7 @@ en:
     device: "Device"
     device_model: "Device model"
     device_category: "Device category"
+    location: "Location"
     property_type: "Device property type"
 
   panel:
