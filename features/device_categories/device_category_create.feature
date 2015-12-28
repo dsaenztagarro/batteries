@@ -1,4 +1,3 @@
-@category
 Feature: Create device category
 
   Background:
