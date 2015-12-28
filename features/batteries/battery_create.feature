@@ -1,4 +1,3 @@
-@battery
 Feature: Create battery
 
   Background:
