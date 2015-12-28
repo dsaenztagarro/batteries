@@ -1,5 +1,4 @@
-<h1>New Battery</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', batteries_path %>
+<%= panel_for @battery do %>
+  <%= render 'form', battery: @battery %>
+  <%= crud_buttons(@battery) %>
+<% end %>

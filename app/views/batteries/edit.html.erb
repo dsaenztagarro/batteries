@@ -1,6 +1,4 @@
-<h1>Editing Battery</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @battery %> |
-<%= link_to 'Back', batteries_path %>
+<%= panel_for @battery do %>
+  <%= render 'form', battery: @battery %>
+  <%= crud_buttons(@battery) %>
+<% end %>
