@@ -1,0 +1,7 @@
+<% disabled ||= false %>
+<%= form_for(food_model, disabled: disabled) do |f| %>
+  <%= error_explanation(food_model) %>
+  <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+  <%= f.text_field :name %>
+  <%= submit(f) %>
+<% end %>

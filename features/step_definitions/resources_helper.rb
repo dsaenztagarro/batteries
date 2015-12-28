@@ -1,13 +1,8 @@
-SELECTABLE = [
-  'Battery size',
-  'Battery model',
-  'Battery pack model',
-  'Device model'
-]
+require_relative 'selectable_fields'
 
 Given (/^I fill the (.+) form with properties:$/) do |resource, table|
   table.rows_hash.each_pair do |key, value|
-    if SELECTABLE.include? key
+    if SELECTABLE_FIELDS.include? key
       step %{I select "#{value}" from "#{key}"}
     else
       step %{I fill in "#{key}" with "#{value}"}

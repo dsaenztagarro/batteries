@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :locations
-  resources :locations
   authenticate :user do
     resources :brands
     resources :battery_sizes
@@ -10,6 +8,8 @@ Rails.application.routes.draw do
     resources :batteries
     resources :device_models
     resources :device_categories
+		resources :food_models
+		resources :locations
   end
 
   devise_for :users

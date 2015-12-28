@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe LocationsController do
+describe FoodModelsController do
   describe 'GET #index' do
     context 'when user is logged in' do
       login_user
 
-      it 'populates an array of battery sizes' do
-        location = build(:location)
-        allow(Location).to receive(:all).and_return([location])
+      it 'populates an array of food models' do
+        food_model = build(:food_model)
+        allow(FoodModel).to receive(:all).and_return([food_model])
         get :index
-        expect(assigns(:locations)).to eq([location])
+        expect(assigns(:food_models)).to eq([food_model])
       end
 
       it 'renders the :index view' do
@@ -36,13 +36,13 @@ describe LocationsController do
       login_user
 
       before(:each) do
-        @location = create(:location)
-        allow(Location).to receive(:find).and_return(@location)
-        get :show, id: @location
+        @food_model = create(:food_model)
+        allow(FoodModel).to receive(:find).and_return(@food_model)
+        get :show, id: @food_model
       end
 
-      it 'assigns the requested battery size to @location' do
-        expect(assigns(:location)).to eq(@location)
+      it 'assigns the requested battery size to @food_model' do
+        expect(assigns(:food_model)).to eq(@food_model)
       end
 
       it 'renders the #show view' do
@@ -52,7 +52,7 @@ describe LocationsController do
 
     context 'when user is logged out' do
       it 'redirects to login page' do
-        get :show, id: create(:location)
+        get :show, id: create(:food_model)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -62,9 +62,9 @@ describe LocationsController do
     context 'when user is logged in' do
       login_user
 
-      it 'assigns @location a new instance' do
+      it 'assigns @food_model a new instance' do
         get :new
-        expect(assigns(:location)).to be_a_new(Location)
+        expect(assigns(:food_model)).to be_a_new(FoodModel)
       end
     end
 
@@ -81,17 +81,17 @@ describe LocationsController do
       login_user
 
       before(:each) do
-        post :create, location: build(:location).attributes
+        post :create, food_model: build(:food_model).attributes
       end
 
       it 'redirects to battery size show page' do
-        expect(response).to redirect_to(location_path(Location.last))
+        expect(response).to redirect_to(food_model_path(FoodModel.last))
       end
     end
 
     context 'when user is logged out' do
       it 'redirects to login page' do
-        post :create, location: build(:location).attributes
+        post :create, food_model: build(:food_model).attributes
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -99,44 +99,44 @@ describe LocationsController do
 
   describe 'PUT #update' do
     before :each do
-      @location = create(:location, name: 'AA')
+      @food_model = create(:food_model, name: 'AA')
     end
 
     context 'when user is logged in' do
       login_user
 
       context 'valid attributes' do
-        it 'located the requested @location' do
-          put :update, id: @location, location: attributes_for(:location)
-          expect(assigns(:location)).to eq(@location)
+        it 'located the requested @food_model' do
+          put :update, id: @food_model, food_model: attributes_for(:food_model)
+          expect(assigns(:food_model)).to eq(@food_model)
         end
 
-        it "changes @location's attributes" do
-          put :update, id: @location,
-                       location: attributes_for(:location, name: 'AAA')
-          @location.reload
-          expect(@location.name).to eq('AAA')
+        it "changes @food_model's attributes" do
+          put :update, id: @food_model,
+                       food_model: attributes_for(:food_model, name: 'AAA')
+          @food_model.reload
+          expect(@food_model.name).to eq('AAA')
         end
 
-        it 'redirects to the updated location' do
-          put :update, id: @location,
-                       location: attributes_for(:location)
-          expect(response).to redirect_to @location
+        it 'redirects to the updated food_model' do
+          put :update, id: @food_model,
+                       food_model: attributes_for(:food_model)
+          expect(response).to redirect_to @food_model
         end
       end
 
       context 'invalid attributes' do
         before :each do
-          put :update, id: @location,
-                       location: attributes_for(:invalid_location)
+          put :update, id: @food_model,
+                       food_model: attributes_for(:invalid_food_model)
         end
-        it 'locates the requested @location' do
-          expect(assigns(:location)).to eq(@location)
+        it 'locates the requested @food_model' do
+          expect(assigns(:food_model)).to eq(@food_model)
         end
 
-        it "does not change @location's attributes" do
-          @location.reload
-          expect(@location.name).to eq('AA')
+        it "does not change @food_model's attributes" do
+          @food_model.reload
+          expect(@food_model.name).to eq('AA')
         end
 
         it 're-renders the edit method' do
@@ -147,8 +147,8 @@ describe LocationsController do
 
     context 'when user is logged out' do
       it 'redirects to login page' do
-        put :update, id: @location,
-                     location: attributes_for(:location)
+        put :update, id: @food_model,
+                     food_model: attributes_for(:food_model)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -156,21 +156,21 @@ describe LocationsController do
 
   describe 'DELETE #destroy' do
     before :each do
-      @location = create(:location)
+      @food_model = create(:food_model)
     end
 
     context 'when user is logged in' do
       login_user
 
-      it 'deletes the location' do
+      it 'deletes the food_model' do
         expect do
-          delete :destroy, id: @location
-        end.to change(Location, :count).by(-1)
+          delete :destroy, id: @food_model
+        end.to change(FoodModel, :count).by(-1)
       end
 
-      it 'redirects to locations#index' do
-        delete :destroy, id: @location
-        expect(response).to redirect_to locations_url
+      it 'redirects to food_models#index' do
+        delete :destroy, id: @food_model
+        expect(response).to redirect_to food_models_url
       end
     end
   end

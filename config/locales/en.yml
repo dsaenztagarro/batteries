@@ -70,6 +70,8 @@ en:
     device: "Device"
     device_model: "Device model"
     device_category: "Device category"
+    food: "Food"
+    food_model: "Food model"
     location: "Location"
     property_type: "Device property type"
 
