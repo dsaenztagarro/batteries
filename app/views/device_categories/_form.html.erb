@@ -1,21 +1,6 @@
-<%= form_for(@device_category) do |f| %>
-  <% if @device_category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@device_category.errors.count, "error") %> prohibited this device_category from being saved:</h2>
-
-      <ul>
-      <% @device_category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% disabled ||= false %>
+<%= form_for(device_category, disabled: disabled)   do |f| %>
+  <%= error_explanation(device_category) %>
+  <%= f.text_field :name %>
+  <%= submit(f) %>
 <% end %>

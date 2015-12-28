@@ -1,5 +1,4 @@
-<h1>New Device Category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', device_categories_path %>
+<%= panel_for @device_category do %>
+  <%= render 'form', device_category: @device_category %>
+  <%= crud_buttons(@device_category) %>
+<% end %>
