@@ -1,4 +1,6 @@
-<%= panel_for @battery_size do %>
-  <%= render 'form', battery_size: @battery_size, disabled: true %>
-  <%= crud_buttons(@battery_size) %>
+<% cache @battery_size do %>
+  <%= panel_for @battery_size do %>
+    <%= render 'form', battery_size: @battery_size, disabled: true %>
+    <%= crud_buttons(@battery_size) %>
+  <% end %>
 <% end %>
