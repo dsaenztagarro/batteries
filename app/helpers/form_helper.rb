@@ -62,14 +62,6 @@ module FormHelper
     form_for(record, *(args << options), &block)
   end
 
-  [:form_for, :fields_for, :form_remote_for, :remote_form_for].each do |method|
-    define_method "disabled_#{method}".to_s do |object_name, *args, &proc|
-      options = args.last.is_a?(Hash) ? args.pop : {}
-      options.update(builder: DisabledFormBuilder)
-      send(method, object_name, *(args << options), &proc)
-    end
-  end
-
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
