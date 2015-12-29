@@ -15,11 +15,13 @@
             </thead>
             <tbody>
             <%% @<%= plural_table_name %>.each do |model| %>
-              <tr>
+              <%% cache model do %>
+                <tr>
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
-                <td><%%= model.<%= attribute.name %> %></td>
+                  <td><%%= model.<%= attribute.name %> %></td>
 <% end -%>
-              </tr>
+                </tr>
+              <%% end %>
             <%% end %>
             </tbody>
           </table>
