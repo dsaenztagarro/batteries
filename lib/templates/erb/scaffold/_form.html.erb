@@ -1,13 +1,12 @@
 <%% disabled ||= false %>
 <%%= form_for(<%= singular_table_name %>, disabled: disabled) do |f| %>
-  <%% error_explanation(<%= singular_table_name %>) %>
-
+  <%%= error_explanation(<%= singular_table_name %>) %>
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
-    <%%= f.password_field :password %>
-    <%%= f.password_field :password_confirmation %>
+  <%%= f.password_field :password %>
+  <%%= f.password_field :password_confirmation %>
 <% else -%>
-    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+  <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
 <% end -%>
 <% end -%>
   <%%= submit(f) %>

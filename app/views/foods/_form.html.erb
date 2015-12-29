@@ -1,0 +1,6 @@
+<% disabled ||= false %>
+<%= form_for(food, disabled: disabled) do |f| %>
+  <%= error_explanation(food) %>
+  <%= f.collection_select :food_model_id, FoodModel.all, :id, :fullname %>
+  <%= submit(f) %>
+<% end %>

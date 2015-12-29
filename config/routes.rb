@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :batteries
     resources :device_models
     resources :device_categories
+    resources :foods
 		resources :food_models
 		resources :locations
   end

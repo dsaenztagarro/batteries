@@ -1,4 +1,3 @@
-@location
 Feature: Create location
 
   Background:
