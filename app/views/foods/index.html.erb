@@ -12,10 +12,12 @@
               </tr>
             </thead>
             <tbody>
-            <% @foods.each do |model| %>
-              <tr>
-                <td><%= link_to model.food_model_name, food_path(model) %></td>
-              </tr>
+            <% @foods.each do |food| %>
+              <% cache food do %>
+                <tr>
+                  <td><%= link_to food.food_model_name, food_path(food) %></td>
+                </tr>
+              <% end %>
             <% end %>
             </tbody>
           </table>
