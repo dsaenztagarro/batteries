@@ -1,4 +1,4 @@
-<% cache @battery_model %>
+<% cache @battery_model do %>
   <%= panel_for @battery_model do %>
     <%= render 'form', battery_model: @battery_model, disabled: true %>
     <%= crud_buttons(@battery_model) %>
