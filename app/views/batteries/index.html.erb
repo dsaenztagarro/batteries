@@ -12,10 +12,12 @@
               </tr>
             </thead>
             <tbody>
-            <% @batteries.each do |model| %>
-              <tr>
-                <td><%= link_to model.name, battery_path(model) %></td>
-              </tr>
+            <% @batteries.each do |battery| %>
+              <% cache battery do %>
+                <tr>
+                  <td><%= link_to battery.name, battery_path(battery) %></td>
+                </tr>
+              <% end %>
             <% end %>
             </tbody>
           </table>
