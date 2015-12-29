@@ -1,77 +1,79 @@
-<div id="sidebar" class="sidebar">
-  <!-- begin sidebar scrollbar -->
-  <div data-scrollbar="true" data-height="100%">
-    <!-- begin sidebar user -->
-    <ul class="nav">
-      <li class="nav-profile">
-        <div class="image">
-          <a href="javascript:;"><img src="<%= asset_path 'img/user-13.jpg' %>" alt="" /></a>
-        </div>
-        <div class="info">
-          Sean Ngu
-          <small>Front end developer</small>
-        </div>
-      </li>
-    </ul>
-    <!-- end sidebar user -->
-    <!-- begin sidebar nav -->
-    <ul class="nav">
-      <li class="nav-header">Navigation</li>
-      <li><a href="<%= root_path %>"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
-      <li><a href="<%= foods_path %>"><i class="fa fa-calendar"></i> <span>Foods</span></a></li>
-      <li><a href="<%= devices_path %>"><i class="fa fa-calendar"></i> <span>Devices</span></a></li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <span class="badge pull-right">10</span>
-          <i class="fa fa-inbox"></i>
-          <span>Foods</span>
-        </a>
-        <ul class="sub-menu">
-          <li><a href="<%= food_models_path %>"><%= t('models.food_model').pluralize %></a></li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <span class="badge pull-right">10</span>
-          <i class="fa fa-inbox"></i>
-          <span>Devices</span>
-        </a>
-        <ul class="sub-menu">
-          <li><a href="<%= device_models_path %>"><%= t 'models.device_model' %></a></li>
-          <li><a href="<%= device_categories_path %>"><%= t 'models.device_category' %></a></li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <span class="badge pull-right">10</span>
-          <i class="fa fa-inbox"></i>
-          <span>Batteries</span>
-        </a>
-        <ul class="sub-menu">
-          <li><a href="<%= batteries_path %>"><%= t 'models.battery' %></a></li>
-          <li><a href="<%= battery_packs_path %>"><%= t 'models.battery_pack' %></a></li>
-        </ul>
-      </li>
-      <li class="has-sub">
-        <a href="javascript:;">
-          <span class="badge pull-right">10</span>
-          <i class="fa fa-inbox"></i>
-          <span>Admin</span>
-        </a>
-        <ul class="sub-menu">
-          <li><a href="<%= brands_path %>"><%= t 'models.brand' %></a></li>
-          <li><a href="<%= battery_sizes_path %>"><%= t 'models.battery_size' %></a></li>
-          <li><a href="<%= battery_models_path %>"><%= t 'models.battery_model' %></a></li>
-          <li><a href="<%= battery_pack_models_path %>"><%= t 'models.battery_pack_model' %></a></li>
-          <li><a href="<%= locations_path %>"><%= t 'models.location' %></a></li>
-        </ul>
-      </li>
-          <!-- begin sidebar minify button -->
-      <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-          <!-- end sidebar minify button -->
-    </ul>
-    <!-- end sidebar nav -->
+<% cache :_menu do %>
+  <div id="sidebar" class="sidebar">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+      <!-- begin sidebar user -->
+      <ul class="nav">
+        <li class="nav-profile">
+          <div class="image">
+            <a href="javascript:;"><img src="<%= asset_path 'img/user-13.jpg' %>" alt="" /></a>
+          </div>
+          <div class="info">
+            Sean Ngu
+            <small>Front end developer</small>
+          </div>
+        </li>
+      </ul>
+      <!-- end sidebar user -->
+      <!-- begin sidebar nav -->
+      <ul class="nav">
+        <li class="nav-header">Navigation</li>
+        <li><a href="<%= root_path %>"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
+        <li class="has-sub">
+          <a href="javascript:;">
+            <span class="badge pull-right">10</span>
+            <i class="fa fa-shopping-cart"></i>
+            <span>Foods</span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="<%= foods_path %>"><%= t('models.food').pluralize %></a></li>
+            <li><a href="<%= food_models_path %>"><%= t('models.food_model').pluralize %></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;">
+            <span class="badge pull-right">10</span>
+            <i class="fa fa-desktop"></i>
+            <span>Devices</span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="<%= devices_path %>"><%= t('models.device').pluralize %></a></li>
+            <li><a href="<%= device_models_path %>"><%= t('models.device_model').pluralize %></a></li>
+            <li><a href="<%= device_categories_path %>"><%= t('models.device_category').pluralize %></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;">
+            <span class="badge pull-right">10</span>
+            <i class="fa fa-flash"></i>
+            <span>Batteries</span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="<%= batteries_path %>"><%= t 'models.battery' %></a></li>
+            <li><a href="<%= battery_packs_path %>"><%= t 'models.battery_pack' %></a></li>
+            <li><a href="<%= battery_sizes_path %>"><%= t 'models.battery_size' %></a></li>
+            <li><a href="<%= battery_models_path %>"><%= t 'models.battery_model' %></a></li>
+            <li><a href="<%= battery_pack_models_path %>"><%= t 'models.battery_pack_model' %></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;">
+            <span class="badge pull-right">10</span>
+            <i class="fa fa-cogs"></i>
+            <span>General Admin</span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="<%= brands_path %>"><%= t 'models.brand' %></a></li>
+            <li><a href="<%= locations_path %>"><%= t 'models.location' %></a></li>
+          </ul>
+        </li>
+            <!-- begin sidebar minify button -->
+        <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+            <!-- end sidebar minify button -->
+      </ul>
+      <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
   </div>
-  <!-- end sidebar scrollbar -->
-</div>
-<div class="sidebar-bg"></div>
+  <div class="sidebar-bg"></div>
+<% end %>
