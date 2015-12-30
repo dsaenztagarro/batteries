@@ -13,12 +13,14 @@
               </tr>
             </thead>
             <tbody>
-            <% @food_models.each do |model| %>
-              <tr>
-                <td><%= model.brand %></td>
-                <td><%= model.name %></td>
-              </tr>
-            <% end %>
+              <% @food_food_models.each do |food_model| %>
+                <% cache food_model do %>
+                  <tr>
+                    <td><%= food_model.brand %></td>
+                    <td><%= food_model.name %></td>
+                  </tr>
+                <% end %>
+              <% end %>
             </tbody>
           </table>
         </div>
