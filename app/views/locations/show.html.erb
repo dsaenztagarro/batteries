@@ -1,4 +1,6 @@
-<%= panel_for @location do %>
-  <%= render 'form', location: @location, disabled: true %>
-  <%= crud_buttons(@location) %>
+<% cache @location do %>
+  <%= panel_for @location do %>
+    <%= render 'form', location: @location, disabled: true %>
+    <%= crud_buttons(@location) %>
+  <% end %>
 <% end %>

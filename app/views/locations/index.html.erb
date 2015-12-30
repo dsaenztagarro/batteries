@@ -12,10 +12,12 @@
               </tr>
             </thead>
             <tbody>
-            <% @locations.each do |model| %>
-              <tr>
-                <td><%= model.name %></td>
-              </tr>
+              <% @locations.each do |location| %>
+                <% cache location do %>
+                <tr>
+                  <td><%= location.name %></td>
+                </tr>
+              <% end %>
             <% end %>
             </tbody>
           </table>
