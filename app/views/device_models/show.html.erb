@@ -1,4 +1,6 @@
-<%= panel_for @device_model do %>
-  <%= render 'form', device_model: @device_model, disabled: true %>
-  <%= crud_buttons(@device_model) %>
+<% cache @device_model do %>
+  <%= panel_for @device_model do %>
+    <%= render 'form', device_model: @device_model, disabled: true %>
+    <%= crud_buttons(@device_model) %>
+  <% end %>
 <% end %>
