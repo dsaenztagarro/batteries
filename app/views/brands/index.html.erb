@@ -12,10 +12,12 @@
               </tr>
             </thead>
             <tbody>
-            <% @brands.each do |model| %>
-              <tr>
-                <td><%= link_to model.name, brand_path(model) %></td>
-              </tr>
+            <% @brands.each do |brand| %>
+              <% cache brand do %>
+                <tr>
+                  <td><%= link_to brand.name, brand_path(brand) %></td>
+                </tr>
+              <% end %>
             <% end %>
             </tbody>
           </table>
