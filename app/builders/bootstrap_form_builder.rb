@@ -85,13 +85,6 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-
-  def input_group_for(text, &_block)
-    @template.content_tag :h4, class: 'm-t-20' do
-      text
-    end
-  end
-
   # Overrides default submit method of FormBuilder
   def submit(value = nil, options = {})
     div_form_group do
