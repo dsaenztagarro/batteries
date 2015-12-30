@@ -6,3 +6,21 @@
 # myfamilyweb
 
 Rails app for management of electronic devices at home
+
+## Features
+
+- Custom scaffolding templates (see `lib/templates/erb/scaffold` folder)
+- Custom form builder helpers (see `app/builders/bootstrap_form_builder.rb`)
+- Rails cache for index/show pages
+
+## Additional rake tasks
+
+- `design:admin`: Launchs a browser with the admin template design
+- `design:blog`: Launchs a browser with the blog template design
+- `design:forum`: Launchs a browser with the forum template design
+
+- `coverage:cucumber`: Launchs a browser with Cucumber coverage report index page
+- `coverage:rspec`: Launchs a browser with Rspec coverage report index page
+
+- `db:dev`: Regenerates development db
+- `db:dev_data`: Generates data for development db
