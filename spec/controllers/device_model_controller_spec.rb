@@ -6,10 +6,9 @@ describe DeviceModelsController do
 
   describe 'GET #index' do
     context 'when user is logged in' do
-      # login_user
+      login_user
 
       it 'assigns all device models as @device_models' do
-        sign_in
         device_model = build(:device_model)
         allow(DeviceModel).to receive(:all).and_return([device_model])
         get :index
