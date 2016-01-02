@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 
 gem 'devise'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.4'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18.4'
 gem 'paperclip', '~> 4.3'
