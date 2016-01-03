@@ -15,12 +15,16 @@ Rails app for management of electronic devices at home
 
 ## Additional rake tasks
 
+- `coverage:cucumber`: Launchs a browser with Cucumber coverage report index page
+- `coverage:rspec`: Launchs a browser with Rspec coverage report index page
+
 - `design:admin`: Launchs a browser with the admin template design
 - `design:blog`: Launchs a browser with the blog template design
 - `design:forum`: Launchs a browser with the forum template design
 
-- `coverage:cucumber`: Launchs a browser with Cucumber coverage report index page
-- `coverage:rspec`: Launchs a browser with Rspec coverage report index page
-
 - `db:dev`: Regenerates development db
 - `db:dev_data`: Generates data for development db
+
+- `quality:reek`: Run reek to examine classes
+- `quality:cane`: Run cane to check quality metrics
+- `quality:all`: Run all quality checks
