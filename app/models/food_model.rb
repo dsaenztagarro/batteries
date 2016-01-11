@@ -1,7 +1,7 @@
 class FoodModel < ActiveRecord::Base
   belongs_to :brand
-  validates :name, presence: true, uniqueness: true
-  validates_presence_of :brand
+  validates_presence_of :brand, :name
+  validates_uniqueness_of :name, case_sensitive: false
   delegate :name, to: :brand, prefix: true
 
   def fullname

@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 describe BatteryModel do
+  subject { FactoryGirl.build(:battery_model) }
   it { is_expected.to validate_presence_of(:battery_size_id) }
   it { is_expected.to validate_presence_of(:capacity) }
   it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to validate_uniqueness_of(:name) }
+  it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
 
   describe '#fullname' do
     before :each do
