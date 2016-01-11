@@ -50,6 +50,9 @@ group :development do
   gem 'guard-bundler', '2.1.0'
   gem 'guard-cucumber', '1.5.4'
   gem 'guard-rspec', '4.6.4'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 3.0.0'
 end
 
 group :test do
@@ -73,6 +76,4 @@ group :test, :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.6.1'
   gem 'spring-commands-rspec', '~> 1.0.4'
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.0.0'
 end
