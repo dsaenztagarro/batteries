@@ -39,7 +39,5 @@ module Family
       g.test_framework :rspec
       g.fixture_replacement :factory_girl
     end
-
-    config.web_console.development_only = false
   end
 end
