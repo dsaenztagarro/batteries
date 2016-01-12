@@ -416,7 +416,7 @@ DEPENDENCIES
   coveralls (~> 0.8.10)
   cucumber-rails (= 1.4.2)
   database_cleaner
-  devise
+  devise (~> 3.5.3)
   factory_girl_rails (= 4.5.0)
   guard (= 2.13.0)
   guard-bundler (= 2.1.0)
