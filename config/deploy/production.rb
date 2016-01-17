@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 # server 'myfamilyweb.es', user: 'deployer', roles: %w(app db web)
-server '46.101.87.149', user: 'deployer', roles: %w(app db web)
+server '46.101.87.149', user: 'deployer', group: 'www-data', roles: %w(app db web)
 
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}

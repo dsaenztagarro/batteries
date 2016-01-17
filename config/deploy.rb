@@ -7,6 +7,8 @@ set :repo_url, 'https://github.com/dsaenztagarro/myfamilyweb.git'
 set :stages, %w(vagrant production)
 set :default_stage, 'vagrant'
 
+set :use_sudo, false
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -20,13 +22,13 @@ set :default_stage, 'vagrant'
 # set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
+set :log_level, :info
 
 # Default value for :pty is false
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, %w(config/database.yml config/secrets.yml)
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
