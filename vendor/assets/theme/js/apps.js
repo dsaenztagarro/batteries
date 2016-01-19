@@ -76,7 +76,7 @@ var handleSidebarMenu = function() {
     window.location.href = $(this).attr('href');
   });
 
-  $('.sidebar .nav > .has-sub .sub-menu li.has-sub > a').on('click touchstart', function() {
+  $('.sidebar .nav > .has-sub .sub-menu li.has-sub > a').on('click', function() {
     if ($('.page-sidebar-minified').length === 0) {
       var target = $(this).next('.sub-menu');
       $(target).slideToggle(250);
