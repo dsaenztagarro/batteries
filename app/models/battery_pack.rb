@@ -1,3 +1,4 @@
+# Represents a battery pack resource
 class BatteryPack < ActiveRecord::Base
   belongs_to :battery_pack_model
   has_many :batteries

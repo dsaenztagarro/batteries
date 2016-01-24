@@ -1,3 +1,4 @@
+# Responsible for managing all information related to dashboard
 class DashboardPresenter
   attr_reader :device_counter
 

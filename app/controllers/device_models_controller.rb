@@ -1,3 +1,4 @@
+# Manages actions related to device model resource
 class DeviceModelsController < SimpleCrud::BaseController
   default_crud
 

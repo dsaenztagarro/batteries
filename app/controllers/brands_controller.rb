@@ -1,3 +1,4 @@
+# Manages actions related to brand resource
 class BrandsController < SimpleCrud::BaseController
   default_crud
 

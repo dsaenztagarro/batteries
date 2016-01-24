@@ -1,3 +1,4 @@
+# Manages actions related to battery pack resource
 class BatteryPacksController < SimpleCrud::BaseController
   default_crud
 

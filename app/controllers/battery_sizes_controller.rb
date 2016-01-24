@@ -1,3 +1,4 @@
+# Manages actions related to battery size resource
 class BatterySizesController < SimpleCrud::BaseController
   default_crud
 

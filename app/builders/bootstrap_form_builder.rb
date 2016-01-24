@@ -35,23 +35,14 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     orig_label(method, text, options.merge(class: 'col-md-3'), &block)
   end
 
-  # Overrides default select method of FormBuilder
-  # def select_control(method, choices = nil, _options_orig = {}, orig_html_options = {}, &block)
-  #   options = orig_options.merge(include_blank: true)
-  #   html_options = decorate_html(method, orig_html_options)
-  #   div_col_md_9 do
-  #     orig_select(method, choices, options, html_options, &block) +
-  #       error_details(method)
-  #   end
-  # end
-
   # Decorates default collection_select method of FormBuilder
   def collection_select_control(method, collection, value_method, text_method,
                                 orig_options = {}, orig_html_options = {})
     options = orig_options.merge(include_blank: true)
     html_options = decorate_opts(method, orig_html_options)
     div_col_md_9 do
-      orig_collection_select(method, collection, value_method, text_method, options, html_options) +
+      orig_collection_select(method, collection, value_method, text_method,
+                             options, html_options) +
         error_details(method)
     end
   end
@@ -71,7 +62,8 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   # Override check_box method of FormBuilder
-  def check_box(method, orig_options = {}, checked_value = '1', unchecked_value = '0')
+  def check_box(method, orig_options = {}, checked_value = '1',
+                unchecked_value = '0')
     options = decorate_opts_with_disabled(orig_options)
     div_form_group do
       div_col_md_9 do
@@ -105,9 +97,8 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def error_details(method)
-    if object.errors.key? method
-      @template.render '/shared/error_field', errors: object.errors[method]
-    end
+    return unless object.errors.key? method
+    @template.render '/shared/error_field', errors: object.errors[method]
   end
 
   # @param method [Symbol] The model method

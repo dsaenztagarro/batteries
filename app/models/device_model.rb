@@ -1,3 +1,4 @@
+# Represents a device model resource
 class DeviceModel < ActiveRecord::Base
   belongs_to :battery_size
   validates :battery_number, :name, presence: true

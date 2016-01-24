@@ -1,3 +1,4 @@
+# Manages actions related to device category resource
 class DeviceCategoriesController < SimpleCrud::BaseController
   default_crud
 

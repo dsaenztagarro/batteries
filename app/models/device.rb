@@ -1,4 +1,4 @@
-# Devices present at home
+# Represents a device resource
 class Device < ActiveRecord::Base
   belongs_to :device_model
   # belongs_to :category, class_name: 'CategoryDevice'

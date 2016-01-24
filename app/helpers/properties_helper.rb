@@ -1,3 +1,4 @@
+# Provides helpers for properties of models
 module PropertiesHelper
   def properties_for(attachable, builder)
     content = render "properties/#{params[:action]}",

@@ -1,3 +1,4 @@
+# Represents a food model resource
 class FoodModel < ActiveRecord::Base
   belongs_to :brand
   validates_presence_of :brand, :name

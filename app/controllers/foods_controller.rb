@@ -1,3 +1,4 @@
+# Manages actions related to foods resource
 class FoodsController < SimpleCrud::BaseController
   default_crud
 
