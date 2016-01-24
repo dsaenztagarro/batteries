@@ -1,6 +1,6 @@
 require_relative 'selectable_fields'
 
-Given (/^I fill the (.+) form with properties:$/) do |_resource, table|
+Given(/^I fill the (.+) form with properties:$/) do |_resource, table|
   table.rows_hash.each_pair do |key, value|
     if SELECTABLE_FIELDS.include? key
       step %(I select "#{value}" from "#{key}")

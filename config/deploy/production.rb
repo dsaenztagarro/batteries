@@ -4,9 +4,12 @@
 # You can define all roles on a single server, or split them:
 
 # server 'myfamilyweb.es', user: 'deployer', roles: %w(app db web)
-server '46.101.87.149', user: 'deployer', group: 'www-data', roles: %w(app db web)
+server '46.101.87.149', user: 'deployer',
+                        group: 'www-data',
+                        roles: %w(app db web)
 
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
+# server 'example.com', user: 'deploy', roles: %w{app web},
+#        other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # role-based syntax
@@ -18,7 +21,8 @@ server '46.101.87.149', user: 'deployer', group: 'www-data', roles: %w(app db we
 # Don't use `:all`, it's a meta role.
 
 # role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
+# role :web, %w{user1@primary.com user2@additional.com},
+#      other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
 # Configuration
