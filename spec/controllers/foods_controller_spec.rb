@@ -118,8 +118,8 @@ describe FoodsController do
         end
 
         it "changes @food's attributes" do
-          put :update, id: @food,
-                       food: attributes_for(:food, food_model_id: new_food_model.id)
+          attributes = attributes_for(:food, food_model_id: new_food_model.id)
+          put :update, id: @food, food: attributes
           @food.reload
           expect(@food.food_model).to eq(new_food_model)
         end

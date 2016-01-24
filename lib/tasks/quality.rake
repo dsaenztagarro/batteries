@@ -1,7 +1,8 @@
 namespace :quality do
   begin
     require 'reek/rake/task'
-    desc 'Run reek to examines classes, modules and methods and report any code smells'
+    desc 'Run reek to examines classes, modules and methods and report any' \
+         'code smells'
     Reek::Rake::Task.new do |t|
       t.fail_on_error = false
     end

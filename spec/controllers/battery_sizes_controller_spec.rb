@@ -107,7 +107,8 @@ describe BatterySizesController do
 
       context 'valid attributes' do
         it 'located the requested @battery_size' do
-          put :update, id: @battery_size, battery_size: attributes_for(:battery_size)
+          put :update, id: @battery_size,
+                       battery_size: attributes_for(:battery_size)
           expect(assigns(:battery_size)).to eq(@battery_size)
         end
 
