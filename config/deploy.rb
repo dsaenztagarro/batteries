@@ -74,7 +74,9 @@ end
 namespace :rails do
   task :console do
     on roles(:app) do
-      execute "ssh -l -t deployer@myfamilyweb.es '#{current_path}/bin/rails console production'"
+      commands = 'source ~/.profile && ' \
+                 "#{current_path}/bin/rails console production"
+      exec "ssh -l -t deployer@myfamilyweb.es '#{commands}'"
     end
   end
 end
