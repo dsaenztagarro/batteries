@@ -8,7 +8,7 @@ Rails.application.load_tasks
 begin
   require 'coveralls/rake/task'
   Coveralls::RakeTask.new
-  task :test_with_coveralls => ['spec', 'cucumber:ok', 'coveralls:push']
+  task test_with_coveralls: ['spec', 'cucumber:ok', 'coveralls:push']
 
   task default: :test_with_coveralls
 rescue LoadError

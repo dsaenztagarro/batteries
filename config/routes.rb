@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :device_models
     resources :device_categories
     resources :foods
-		resources :food_models
-		resources :locations
+    resources :food_models
+    resources :locations
   end
 
   devise_for :users, path_names: {
