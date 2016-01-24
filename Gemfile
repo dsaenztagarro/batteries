@@ -74,7 +74,8 @@ group :test, :development do
   gem 'pry-byebug'
   gem 'reek'
   gem 'rubocop'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.6.1'
   gem 'spring-commands-rspec', '~> 1.0.4'
 end

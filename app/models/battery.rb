@@ -1,3 +1,4 @@
+# Represents a battery resource
 class Battery < ActiveRecord::Base
   belongs_to :battery_model
   belongs_to :device

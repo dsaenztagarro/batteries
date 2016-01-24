@@ -1,3 +1,4 @@
+# Adds global view helpers
 module FormHelper
   def crud_buttons(model)
     render 'shared/crud_buttons', model: model
@@ -50,7 +51,9 @@ module FormHelper
   def form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:html] = {} unless options.key? :html
-    options[:html].merge!(class: 'form-horizontal') unless options[:html].key? :class
+    unless options[:html].key? :class
+      options[:html].merge!(class: 'form-horizontal')
+    end
     super(record, *(args << options), &block)
   end
 
@@ -68,7 +71,8 @@ module FormHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + '_fields', f: builder)
     end
-    link_to(name, '#', class: 'btn btn-primary btn-sm m-r-5 add_fields', data: { id: id, fields: fields.delete("\n") })
+    link_to(name, '#', class: 'btn btn-primary btn-sm m-r-5 add_fields',
+                       data: { id: id, fields: fields.delete("\n") })
   end
 
   def submit(builder)

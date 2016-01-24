@@ -1,3 +1,4 @@
+# Represents a battery model resource
 class BatteryModel < ActiveRecord::Base
   belongs_to :battery_size
   validates_inclusion_of :rechargeable, in: [true, false]

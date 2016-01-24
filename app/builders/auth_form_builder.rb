@@ -1,3 +1,5 @@
+# This class extends default form builder to adapt authentication pages to
+# Bootstrap theme
 class AuthFormBuilder < ActionView::Helpers::FormBuilder
   %w(email_field password_field check_box submit).each do |field|
     alias_method "orig_#{field}".to_s, field.to_s
@@ -14,7 +16,8 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
 
   def check_box(method, _options = {})
     @template.content_tag :div, class: 'checkbox m-b-20' do
-      ('<label>' + orig_check_box(method) + I18n.t(method) + '</label>').html_safe
+      html = '<label>' + orig_check_box(method) + I18n.t(method) + '</label>'
+      html.html_safe
     end
   end
 

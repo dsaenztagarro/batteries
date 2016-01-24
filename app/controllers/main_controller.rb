@@ -1,3 +1,4 @@
+# Manages actions related to main resource
 class MainController < ApplicationController
   def index
     @device_counter = Device.count
