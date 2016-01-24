@@ -52,7 +52,7 @@ Then(/^I should see "([^\"]*)"$/) do |text|
   expect(page).to have_content(text)
 end
 
-Then(/^I should see \/([^\/]*)\/$/) do |regexp|
+Then(%r{^I should see \/([^\/]*)\/$}) do |regexp|
   regexp = Regexp.new(regexp)
   page.should have_content(regexp)
 end
@@ -61,7 +61,7 @@ Then(/^I should not see "([^\"]*)"$/) do |text|
   page.should_not have_content(text)
 end
 
-Then(/^I should not see \/([^\/]*)\/$/) do |regexp|
+Then(%r{^I should not see \/([^\/]*)\/$}) do |regexp|
   regexp = Regexp.new(regexp)
   page.should_not have_content(regexp)
 end
