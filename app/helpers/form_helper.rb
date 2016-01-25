@@ -17,10 +17,9 @@ module FormHelper
       title = title_from_relation(arg)
     elsif arg.is_a? ActiveRecord::Base
       title = title_from_model(arg)
-    elsif arg.is_a? String
-      title = arg
     else
-      fail ArgumentError, 'Invalid panel arg'
+      fail ArgumentError, 'Invalid panel arg' unless arg.is_a? String
+      title = arg
     end
     render layout: '/shared/panel', locals: { title: title }, &block
   end
@@ -51,9 +50,7 @@ module FormHelper
   def form_for(record, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:html] = {} unless options.key? :html
-    unless options[:html].key? :class
-      options[:html].merge!(class: 'form-horizontal')
-    end
+    options[:html][:class] = 'form-horizontal' unless options[:html].key? :class
     super(record, *(args << options), &block)
   end
 
@@ -61,7 +58,7 @@ module FormHelper
     options = args.last.is_a?(Hash) ? args.pop : {}
     options[:builder] = AuthFormBuilder
     options[:html] = {} unless options.key? :html
-    options[:html].merge!(class: 'margin-bottom-0')
+    options[:html][:class] = 'margin-bottom-0'
     form_for(record, *(args << options), &block)
   end
 

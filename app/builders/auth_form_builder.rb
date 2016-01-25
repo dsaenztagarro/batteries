@@ -23,7 +23,7 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
 
   def submit(value = nil, options = {})
     @template.content_tag :div, class: 'login-buttons' do
-      options.merge!(class: 'btn btn-success btn-block btn-lg')
+      options[:class] = 'btn btn-success btn-block btn-lg'
       # Disable button when the form is submitted
       data_options = options[:data] || {}
       options[:data] = data_options.merge(disable_with: 'Please wait..')
@@ -41,7 +41,7 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
   def decorate_html(method, options)
     error_class = object.errors.key?(method) ? 'parsley-error' : ''
     options.merge(class: "form-control input-lg #{error_class}")
-      .merge(placeholder: I18n.t(method))
+           .merge(placeholder: I18n.t(method))
   end
 
   def div_control(&block)

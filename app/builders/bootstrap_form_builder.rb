@@ -82,7 +82,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def submit(value = nil, options = {})
     div_form_group do
       div_col_md_9 do
-        options.merge!(class: 'btn btn-success')
+        options[:class] = 'btn btn-success'
         # Disable button when the form is submitted
         data_options = options[:data] || {}
         options[:data] = data_options.merge(disable_with: 'Please wait..')
