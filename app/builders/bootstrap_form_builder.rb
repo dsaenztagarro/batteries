@@ -1,5 +1,8 @@
+require_relative './helpers/bootstrap_form_builder_helper'
+
 # This class extends default form builder to adapt to Bootstrap theme
 class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
+  include BootstrapFormBuilderHelper
   # Create alias to access default methods of FormBuilder
   %w(
     check_box
@@ -65,13 +68,11 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   def check_box(method, orig_options = {}, checked_value = '1',
                 unchecked_value = '0')
     options = decorate_opts_with_disabled(orig_options)
-    div_form_group do
-      div_col_md_9 do
-        @template.content_tag :div, class: 'checkbox' do
-          label_control(method) do
-            orig_check_box(method, options, checked_value, unchecked_value) +
-              method.to_s.humanize
-          end
+    div_wrapper do
+      @template.content_tag :div, class: 'checkbox' do
+        label_control(method) do
+          orig_check_box(method, options, checked_value, unchecked_value) +
+            method.to_s.humanize
         end
       end
     end
@@ -88,42 +89,5 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
         orig_submit(value, options)
       end
     end
-  end
-
-  def div_form_group(&block)
-    @template.content_tag :div, class: 'form-group', &block
-  end
-
-  private
-
-  def error_details(method)
-    return unless object.errors.key? method
-    @template.render '/shared/error_field', errors: object.errors[method]
-  end
-
-  # @param method [Symbol] The model method
-  # @param [Hash] options the options to create the form field
-  # @return [Hash] The options decorated
-  def decorate_opts(method, options)
-    opts = decorate_opts_with_errors(method, options)
-    decorate_opts_with_disabled(opts)
-  end
-
-  # @param method [Symbol] The model method
-  # @param [Hash] options the options to create the form field
-  # @return [Hash] The options decorated for showing errors
-  def decorate_opts_with_errors(method, options)
-    error_class = object.errors.key?(method) ? 'parsley-error' : ''
-    options.merge(class: "form-control #{error_class}")
-  end
-
-  # @param [Hash] options the options to create the form field
-  # @return [Hash] The options decorated for showing disabled field
-  def decorate_opts_with_disabled(options)
-    options.merge(disabled: self.options[:disabled])
-  end
-
-  def div_col_md_9(&block)
-    @template.content_tag :div, class: 'col-md-9', &block
   end
 end

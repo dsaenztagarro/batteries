@@ -34,9 +34,8 @@ class AuthFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def error_details(method)
-    if object.errors.key? method
-      @template.render '/shared/error_field', errors: object.errors[method]
-    end
+    return unless object.errors.key? method
+    @template.render '/shared/error_field', errors: object.errors[method]
   end
 
   def decorate_html(method, options)
