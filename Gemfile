@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '~> 4.2.5.1'
 
-gem 'devise', '~> 3.5.3'
+gem 'devise', '~> 3.5.5'
 gem 'jbuilder', '~> 2.4'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.1.0'
 gem 'pg', '~> 0.18.4'
 gem 'paperclip', '~> 4.3'
 gem 'responders', '~> 2.1'
@@ -39,7 +39,7 @@ gem 'simplecrud', github: 'dsaenztagarro/simplecrud', branch: 'master'
 group :development do
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rvm', '0.1.2'
-  gem 'capistrano-rails', '1.1.5'
+  gem 'capistrano-rails', '~> 1.1.6'
   gem 'capistrano-passenger', '0.2.0'
 
   gem 'rb-fchange', require: false # Windows
@@ -49,7 +49,7 @@ group :development do
 
   gem 'guard', '2.13.0'
   gem 'guard-bundler', '2.1.0'
-  gem 'guard-cucumber', '1.5.4'
+  gem 'guard-cucumber', '~> 2.0.0'
   gem 'guard-rspec', '4.6.4'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -57,9 +57,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.6.0'
   gem 'coveralls', '~> 0.8.10'
-  gem 'cucumber-rails', '1.4.2', require: false
+  gem 'cucumber-rails', '1.4.3', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '4.5.0'
   gem 'rspec-rails', '3.4.0'
