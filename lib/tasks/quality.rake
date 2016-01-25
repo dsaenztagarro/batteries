@@ -3,7 +3,7 @@ namespace :quality do
     require 'rubocop/rake_task'
     desc 'Run RuboCop on the lib directory'
     RuboCop::RakeTask.new(:rubocop) do |task|
-      task.patterns = ['app/**/*.rb']
+      task.patterns = ['app/**/*.rb', 'config/**/*.rb', 'lib/**/*.rb']
     end
   rescue LoadError
     puts '>>>>> Rubocop gem not loaded, omitting tasks'
