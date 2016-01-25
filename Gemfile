@@ -65,7 +65,7 @@ group :test do
   gem 'rspec-rails', '3.4.0'
   gem 'shoulda-matchers', '~> 3.0'
   gem 'simplecov', '~> 0.11.0'
-  gem 'simplecov-console', '~> 0.2.0'
+  gem 'simplecov-console', '~> 0.3.0'
 end
 
 group :test, :development do
