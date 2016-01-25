@@ -1,5 +1,12 @@
 namespace :quality do
   begin
+    require 'rubocop/rake_task'
+    RuboCop::RakeTask.new
+  rescue LoadError
+    puts '>>>>> Rubocop gem not loaded, omitting tasks'
+  end
+
+  begin
     require 'reek/rake/task'
     desc 'Run reek to examines classes, modules and methods and report any' \
          'code smells'
@@ -22,5 +29,5 @@ namespace :quality do
     puts '>>>>> Cane gem not loaded, omitting tasks'
   end
 
-  task all: [:reek, :cane]
+  task all: [:rubocop, :cane]
 end
