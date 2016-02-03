@@ -427,6 +427,7 @@ DEPENDENCIES
   devise (~> 3.5.5)
   factory_girl_rails (= 4.5.0)
   grape (~> 0.14.0)
+  grape-swagger (~> 0.10.4)
   grape-swagger-rails (~> 0.1.0)
   guard (= 2.13.0)
   guard-bundler (= 2.1.0)
