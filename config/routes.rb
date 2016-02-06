@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount API::Base, at: '/'
+  mount API::Base => '/'
   mount GrapeSwaggerRails::Engine => '/swagger'
 
   devise_for :users, path_names: {
