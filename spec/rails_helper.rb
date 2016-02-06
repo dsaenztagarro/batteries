@@ -1,11 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
-
-# Prevent database truncation if the environment is production
-if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
-end
 
 require_relative 'coverage_helper'
 
@@ -41,6 +36,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
+  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

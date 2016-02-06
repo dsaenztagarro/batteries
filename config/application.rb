@@ -37,6 +37,11 @@ module Family
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('/app/validators')
 
+    # Auto-load API and its subdirectories
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths << Rails.root.join('/app/api/*')
+
+
     config.generators do |g|
       g.helpers false
       g.javascripts false
