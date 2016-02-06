@@ -1,8 +1,8 @@
+require_relative 'coverage_helper'
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
-
-require_relative 'coverage_helper'
 
 # require 'coverage_helper'
 require 'spec_helper'
@@ -34,7 +34,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
-  config.extend ControllerHelpers, type: :controller
+  config.extend ControllerHelper, type: :controller
+  config.include RequestHelper, type: :request
   config.include FactoryGirl::Syntax::Methods
   config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
 

@@ -69,7 +69,7 @@ group :test do
   gem 'factory_girl_rails', '4.5.0'
   gem 'rspec-rails', '3.4.0'
   gem 'shoulda-matchers', '~> 3.0'
-  gem 'simplecov', '~> 0.11.0'
+  gem 'simplecov', '~> 0.11.2'
   gem 'simplecov-console', '~> 0.3.0'
 end
 
