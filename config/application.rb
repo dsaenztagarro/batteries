@@ -37,11 +37,6 @@ module Family
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('/app/validators')
 
-    # Auto-load API and its subdirectories
-    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
-    config.autoload_paths << Rails.root.join('/app/api/*')
-
-
     config.generators do |g|
       g.helpers false
       g.javascripts false
@@ -49,6 +44,13 @@ module Family
       g.templates.unshift File.expand_path('../templates', __FILE__)
       g.test_framework :rspec
       g.fixture_replacement :factory_girl
+    end
+
+    config.middleware.insert_before 'ActionDispatch::Static', 'Rack::Cors' do
+      allow do
+        origins '*' # Permit CORS from any origin, only in the API route
+        resource '/api/*', headers: :any
+      end
     end
   end
 end

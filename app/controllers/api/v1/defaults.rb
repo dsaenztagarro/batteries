@@ -1,3 +1,5 @@
+require 'doorkeeper/grape/helpers'
+
 module API
   module V1
     module Defaults
@@ -9,6 +11,13 @@ module API
         default_format :json
         format :json
         # formatter :json, Grape::Formatter::ActiveModelSerializers
+
+        # Authentication
+        helpers Doorkeeper::Grape::Helpers
+
+        before do
+          doorkeeper_authorize!
+        end
 
         helpers do
           def permitted_params

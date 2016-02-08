@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  use_doorkeeper
 
   mount API::Base => '/'
-  mount GrapeSwaggerRails::Engine => '/swagger'
+  mount GrapeSwaggerRails::Engine => '/api/docs'
 
   devise_for :users, path_names: {
     sign_up: ''

@@ -3,19 +3,26 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.5.1'
 
 gem 'devise', '~> 3.5.5'
-gem 'grape', '~> 0.14.0'
-gem 'grape-swagger', '~> 0.10.4'
-gem 'grape-swagger-rails', '~> 0.1.0'
 # gem 'grape-active_model_serializers'
 gem 'jbuilder', '~> 2.4'
 gem 'jquery-rails', '~> 4.1.0'
 gem 'pg', '~> 0.18.4'
 gem 'paperclip', '~> 4.3'
-gem 'rack-cors', :require => 'rack/cors'
 gem 'responders', '~> 2.1'
 gem 'searchkick', '~> 1.1.2'
 gem 'sqlite3'
 gem 'turbolinks'
+
+# API related gems
+gem 'grape', '~> 0.14.0'
+gem 'grape-swagger', '~> 0.10.4' # Adds swagger documentation to grape
+gem 'grape-swagger-rails', '~> 0.1.0' # Add swagger-ui assests to asset pipeline
+gem 'rack-cors', :require => 'rack/cors' # Make Swagger spec CORS, required!
+gem 'kramdown', '~> 1.9.0'
+
+# Authentication
+gem 'doorkeeper', '~> 3.1.0' # An Oauth 2 provider for Rails and Grape
+# gem 'wine_bouncer', '~> 0.5.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -59,6 +66,9 @@ group :development do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0.0'
+
+  # Authorization client
+  gem 'oauth2'
 end
 
 group :test do
