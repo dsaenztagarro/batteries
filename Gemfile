@@ -1,34 +1,34 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.5.1'
+gem 'rails'
 
-gem 'devise', '~> 3.5.5'
+gem 'devise'
 # gem 'grape-active_model_serializers'
-gem 'jbuilder', '~> 2.4'
-gem 'jquery-rails', '~> 4.1.0'
-gem 'pg', '~> 0.18.4'
-gem 'paperclip', '~> 4.3'
-gem 'responders', '~> 2.1'
-gem 'searchkick', '~> 1.1.2'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'pg'
+gem 'paperclip'
+gem 'responders'
+gem 'searchkick'
 gem 'sqlite3'
 gem 'turbolinks'
 
 # API related gems
-gem 'grape', '~> 0.14.0'
-gem 'grape-swagger', '~> 0.10.4' # Adds swagger documentation to grape
-gem 'grape-swagger-rails', '~> 0.1.0' # Add swagger-ui assests to asset pipeline
+gem 'grape'
+gem 'grape-swagger' # Adds swagger documentation to grape
+gem 'grape-swagger-rails' # Add swagger-ui assests to asset pipeline
 gem 'rack-cors', :require => 'rack/cors' # Make Swagger spec CORS, required!
-gem 'kramdown', '~> 1.9.0'
+gem 'kramdown'
 
 # Authentication
-gem 'doorkeeper', '~> 3.1.0' # An Oauth 2 provider for Rails and Grape
+gem 'doorkeeper' # An Oauth 2 provider for Rails and Grape
 # gem 'wine_bouncer', '~> 0.5.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.1'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -49,31 +49,31 @@ gem 'simplecrud', github: 'dsaenztagarro/simplecrud', branch: 'master'
 
 # Use Capistrano for deployment
 group :development do
-  gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rvm', '0.1.2'
-  gem 'capistrano-rails', '~> 1.1.6'
-  gem 'capistrano-passenger', '0.2.0'
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 
   gem 'rb-fchange', require: false # Windows
   gem 'rb-fsevent', require: false # OS X
   gem 'rb-inotify', require: false # Linux
   gem 'terminal-notifier-guard'
 
-  gem 'guard', '2.13.0'
-  gem 'guard-bundler', '2.1.0'
-  gem 'guard-cucumber', '~> 2.0.0'
-  gem 'guard-rspec', '4.6.4'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.0.0'
+  gem 'web-console'
 
   # Authorization client
   gem 'oauth2'
 end
 
 group :test do
-  gem 'capybara', '~> 2.6.0'
-  gem 'coveralls', '~> 0.8.10'
+  gem 'capybara'
+  gem 'coveralls'
   gem 'cucumber-rails', '1.4.3', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '4.5.0'
